@@ -1,0 +1,22 @@
+.header{
+    display:flex;
+    justify-content: space-around;
+    margin: -0.5rem -0.5rem;
+}
+
+ul{
+    display:flex;
+}
+
+ul a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid black;
+    border-radius: 40px;
+    margin: 10px;
+    min-width: 40px;
+    padding: 10px;
+    text-decoration: none;
+}
