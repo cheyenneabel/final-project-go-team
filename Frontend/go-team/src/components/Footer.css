@@ -1,14 +1,15 @@
 .footer{
-    display:flex;
-    margin: 2%;
+    position:fixed;
+    background-color: #000D1B;
     font-size: larger;
     text-align: left;
-    justify-content: space-between;
-    position: relative;
-    bottom: 0;
-    left: 0;
+    bottom: 0px;
+    width: 100%;
+
 }
 
-a:hover{
-    font-weight: bolder;
+section{
+    color: white;
+    margin: 3%;
 }
+
