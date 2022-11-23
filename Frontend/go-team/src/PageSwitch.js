@@ -1,8 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import TennisSchedulePage from './components/TennisSchedulePage';
-
-import Team200ContactPage from './components/Team200ContactPage';
 import UserPage from './components/UserPage';
 
 
@@ -18,9 +16,7 @@ const PageSwitch = () => {
             <Route exact path = "/" component={MainPage} />
             <Route exact path = "/tennisSchedule" component={TennisSchedulePage} />
 
-            <Route exact path = "/team200" component={Team200ContactPage} />
             <Route exact path= '/user' component={UserPage}/>
-
             <Route exact path = "/aboutUs" component={AboutUsPage} />
 
         </Switch>
