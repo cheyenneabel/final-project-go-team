@@ -1,0 +1,14 @@
+.footer{
+    display:flex;
+    margin: 2%;
+    font-size: larger;
+    text-align: left;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+a:hover{
+    font-weight: bolder;
+}
