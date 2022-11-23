@@ -4,9 +4,9 @@ import './MainPage.css';
 
 const MainPage = () => (
     <section className="mainPage">
-        <h3 id="welcomeMessage">Go Team! Let's find a game.</h3>
 
-        <NavLink id="tennisSchedule" to="/tennisSchedule">Tennis Match Schedule</NavLink>
+        <NavLink id="tennisSchedule" to="/tennisSchedule">Schedule a Match</NavLink>
+        <NavLink id="postATennisMatch" to="/postATennisMatch">Join a Match</NavLink>
 
     </section>
 
