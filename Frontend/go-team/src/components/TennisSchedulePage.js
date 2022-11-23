@@ -1,8 +1,12 @@
-import React from "react"
+import React from "react";
+import './TennisSchedulePage.css';
 
 const TennisSchedulePage = () => (
     <div className="tennisSchedulePage">
-        <h2 id="scheduleGreeting">Tennis Match Signup Page</h2>
+        <div className="text">
+            <h2 id="scheduleGreeting">Join a match</h2>
+            <p>All Available matches and results will adjust when filtering options are selected.</p>
+        </div>
     </div>
 )
 
