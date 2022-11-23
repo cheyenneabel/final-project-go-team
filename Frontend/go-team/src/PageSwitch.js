@@ -1,4 +1,4 @@
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import MainPage from './components/MainPage';
 import TennisSchedulePage from './components/TennisSchedulePage';
 

@@ -6,7 +6,7 @@ const Footer = () => {
 
     return (<div className="footer">
     
-        <large>&copy; Team200 2022</large>
+        <section>&copy; 2022 Go Team</section>
         </div>
     )
 }
