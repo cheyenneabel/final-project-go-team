@@ -3,7 +3,7 @@ import MainPage from './components/MainPage';
 import TennisSchedulePage from './components/TennisSchedulePage';
 import AboutUsPage from './components/AboutUsPage';
 
-//import all components (minus header and footer)
+//import all components 
 
 const PageSwitch = () => {
 
