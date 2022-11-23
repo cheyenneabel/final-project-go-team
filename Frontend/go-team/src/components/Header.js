@@ -8,7 +8,7 @@ import logoImage from "./images/logo-color.png";
 const Header = () => (
     <div className="header">
         <div className="logo">
-            <img src={logoImage} alt="logo"/>
+            <NavLink to='/'><img src={logoImage} alt="logo"/></NavLink>
         </div>
         <ul>
             <NavLink to='/aboutUs'>About Us</NavLink>
