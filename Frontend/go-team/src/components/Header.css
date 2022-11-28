@@ -1,22 +1,33 @@
 .header{
+    background-color: #000D1B;
+    position: sticky;
     display:flex;
     justify-content: space-around;
-    margin: -0.5rem -0.5rem;
+    width: 100%;
+    margin: 0 0 0rem;
 }
 
 ul{
     display:flex;
+    box-sizing: border-box;
 }
 
 ul a{
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: center;
-
+    color: white;
     border: 3px solid black;
     border-radius: 40px;
-    margin: 10px;
     min-width: 40px;
     padding: 10px;
     text-decoration: none;
+    font-weight: bold;
+}
+
+img {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    justify-content: flex-start;
 }
