@@ -1,0 +1,10 @@
+package com.GoTeam.demo.Repositories;
+
+import com.GoTeam.demo.Models.UserModel;
+import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
+import java.util.UUID;
+
+public interface UserRepo extends CrudRepository<UserModel, UUID> {
+    Optional<UserModel> findByEmail(String email);
+}
