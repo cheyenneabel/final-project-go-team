@@ -5,8 +5,7 @@ import TennisSchedulePage from './components/TennisSchedulePage';
 import UserPage from './components/UserPage';
 import PostAMatchPage from './components/PostAMatchPage';
 import LoginPage from './components/LoginPage';
-
-//import all components (minus header and footer)
+import SignUpPage from './components/SignUpPage';
 
 const PageSwitch = () => {
 
@@ -18,7 +17,7 @@ const PageSwitch = () => {
             <Route exact path= '/user' component={UserPage}/>
             <Route exact path = "/aboutUs" component={AboutUsPage} />
             <Route exact path = "/loginPage" component={LoginPage} />
-
+            <Route exact path = "/signUpPage" component={SignUpPage} />
         </Switch>
     )
 }
