@@ -15,7 +15,7 @@ const PageSwitch = () => {
             <Route exact path = "/" component={MainPage} />
             <Route exact path = "/tennisSchedule" component={TennisSchedulePage} />
             <Route exact path = "/postATennisMatch" component={PostAMatchPage} />
-            <Route exact path= "/user" component={UserPage}/>
+            <Route exact path= '/user' component={UserPage}/>
             <Route exact path = "/aboutUs" component={AboutUsPage} />
             <Route exact path = "/loginPage" component={LoginPage} />
 
