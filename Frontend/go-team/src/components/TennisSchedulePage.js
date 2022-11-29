@@ -7,7 +7,7 @@ const TennisSchedulePage = () => (
         <div className="text">
             <h2 id="scheduleGreeting">Join a match</h2>
             <p>All Available matches and results will adjust when filtering options are selected.</p>
-        {
+            {
             // Need to: add radio buttons that can allow user to search by skill level.
 
             //          implement fetch method to get all available matches
@@ -16,7 +16,7 @@ const TennisSchedulePage = () => (
 
             //          create a button to join the selected game
 
-        }
+            }
         </div>
     </div>
 )
