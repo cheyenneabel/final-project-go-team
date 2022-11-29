@@ -12,6 +12,9 @@ const AboutUsPage = () => (
             <h4>Ayanle Dahir</h4>
 
             <h4>Cheyenne Abel</h4>
+                <p>My name is Cheyenne Abel. I received my BFA in Dance from The Ohio State University in 2013. 
+                    I am transitioning into a Software Development role after completing We Can Code IT Bootcamp. 
+                    Currently gaining hands-on project experience building both the front-end and back-end of web apps.</p>
     </div>
 );
 
