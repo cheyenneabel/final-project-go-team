@@ -1,9 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ReactDOM } from "react-dom/client";
 
-const PostAMatchPage = () => {
+const PostAMatchPage = () => (
+
+
 
     {
+        //<div className="postAMatch">
+    
         // create input field for user to enter location
 
         // create radio button for user to enter skill level (similar radio button on tennisSchedulePage)
@@ -12,8 +17,27 @@ const PostAMatchPage = () => {
 
         // create "schedule" button to post the match once the button is clicked
 
+     
+     
+      //  const [location, setLocation] = useState("";)
+        // <form>
+        //     <label>Enter your location:
+        //         <input
+        //             type="text"
+        //             value={location}
+        //             onChange={(e) => setLocation(e.target.value)}
+        //         />
+        //     </label>    
+        // </form>    
+    
+   
+
+        // const root = ReactDOM.createRoot(document.getElementById('root'));
+        // root.render(<postLocation />);
+    
+        //</div>
     }
 
-}
+)
 
 export default PostAMatchPage;
