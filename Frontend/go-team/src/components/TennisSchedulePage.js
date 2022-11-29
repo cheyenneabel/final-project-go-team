@@ -12,7 +12,7 @@ const TennisSchedulePage = () => (
 
                     // user input search by location
                    
-                    //          implement fetch method to get all available matches
+                    //          1. implement fetch method to get all available matches
 
                     //          create button to select a specific game
 

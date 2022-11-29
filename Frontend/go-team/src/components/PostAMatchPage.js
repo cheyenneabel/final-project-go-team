@@ -6,7 +6,9 @@ const PostAMatchPage = () => (
   <div className="postAMatch">
     <h2>Schedule a Match</h2>
     {
-        // create input field for user to enter location
+        // create a fetch post. 
+        
+        //create input field for user to enter location
 
         // create radio button for user to enter skill level (similar radio button on tennisSchedulePage)
 
