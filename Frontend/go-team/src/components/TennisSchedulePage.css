@@ -1,10 +1,7 @@
-.tennisSchedulePage {
-    background-color: rgb(192, 246, 208);
-    margin:0;
-    padding: 100%;
-}
-.text {
-    font-size: medium;
-    text-decoration: none;
-    color:black;
+.scheduleText {
+    background-color: rgb(218, 248, 231);
+    border-style: solid;
+    border-color: rgb(193, 227, 193);
+    margin: 10px 0;
+    padding: 200px;
 }

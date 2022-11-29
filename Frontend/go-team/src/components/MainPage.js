@@ -5,11 +5,11 @@ import './MainPage.css';
 const MainPage = () => (
     <section className="mainPage">
 
-        <NavLink id="tennisSchedule" to="/tennisSchedule">Schedule a Match</NavLink>
-        <NavLink id="postATennisMatch" to="/postATennisMatch">Join a Match</NavLink>
+        <NavLink id="tennisSchedule" to="/tennisSchedule">Join a Match</NavLink>
+        <NavLink id="postATennisMatch" to="/postATennisMatch">Schedule a Match</NavLink>
 
     </section>
 
 )
 
-export default MainPage
+export default MainPage;
