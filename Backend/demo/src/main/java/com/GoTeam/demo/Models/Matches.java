@@ -11,14 +11,14 @@ public class Matches {
     @Id
     @generatedValue
 
-    private string location;
+    private String location;
     private int date;
-    private string skillLevel;
+    private String skillLevel;
     private int time;
 
 }
 
-public Matches(string location, int date, string skillLevel, int time) {
+public Matches(String location, int date, String skillLevel, int time) {
     this.location = location;
     this.date = date;
     this.skillLevel = skillLevel;
