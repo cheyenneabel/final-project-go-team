@@ -1,47 +1,60 @@
 package com.GoTeam.demo.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
 public class Matches {
     @Id
-    @generatedValue
+    @GeneratedValue
 
-    private string location;
+    private long id;
+
+    private String location;
     private int date;
-    private string skillLevel;
+    private String skillLevel;
     private int time;
 
+    @ManyToMany (mappedBy = "matches")
+    private Collection <UserModel> users;
+
+    public Collection<UserModel> getUsers() {
+        return users;
+    }
+
+    public Matches(String location, int date, String skillLevel, int time) {
+        this.location = location;
+        this.date = date;
+        this.skillLevel = skillLevel;
+        this.time = time;
+
+    }
+
+
+    public Matches() {
+
+    }
+
+    public String getLocation() {
+
+        return location;
+    }
+
+    public int getDate() {
+
+        return date;
+    }
+    public String getSkillLevel() {
+        return skillLevel;
+    }
+
+    public int getTime() {
+
+        return time;
+    }
+
 }
 
-public Matches(string location, int date, string skillLevel, int time) {
-    this.location = location;
-    this.date = date;
-    this.skillLevel = skillLevel;
-    this.time = time;
 
-}
-
-public Matches {
-
-}
-
-public string getLocation() {
-    return location;
-}
-
-public int getDate() {
-    return date;
-}
- public string getSkillLevel() {
-    return skillLevel;
- }
-
- public int getTime() {
-    return time;
- }
 
