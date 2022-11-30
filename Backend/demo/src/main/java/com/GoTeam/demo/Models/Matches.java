@@ -1,9 +1,7 @@
 package com.GoTeam.demo.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
@@ -18,6 +16,13 @@ public class Matches {
     private String skillLevel;
     private int time;
 
+    @ManyToMany (mappedBy = "matches")
+    private Collection <UserModel> users;
+
+    public Collection<UserModel> getUsers() {
+        return users;
+    }
+
     public Matches(String location, int date, String skillLevel, int time) {
         this.location = location;
         this.date = date;
@@ -25,6 +30,7 @@ public class Matches {
         this.time = time;
 
     }
+
 
     public Matches() {
 
