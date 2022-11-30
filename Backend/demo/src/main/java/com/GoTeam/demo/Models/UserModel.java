@@ -1,19 +1,20 @@
 package com.GoTeam.demo.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.UUID;
 
 @Entity
 public class UserModel {
     @Id
     @GeneratedValue
-    UUID id;
+    private UUID id;
 
     @NotBlank(message = "Email is mandatory")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", flags = Pattern.Flag.CASE_INSENSITIVE)
@@ -30,16 +31,21 @@ public class UserModel {
     @NotBlank(message = "City is mandatory")
     private String city;
 
+    @ManyToMany
+    @JsonIgnore
+    private Collection<Matches> matches;
+
     public UserModel() {
     }
 
-    public UserModel(String email, String password, String firstName, String lastName, String skillLevel, String city) {
+    public UserModel(String email, String password, String firstName, String lastName, String skillLevel, String city, Matches... matches) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.skillLevel = skillLevel;
         this.city = city;
+        this.matches = Arrays.asList(matches);
     }
 
     public String getEmail() {
@@ -88,5 +94,13 @@ public class UserModel {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Collection<Matches> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(Collection<Matches> matches) {
+        this.matches = matches;
     }
 }
