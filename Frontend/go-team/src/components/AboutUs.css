@@ -1,0 +1,10 @@
+.aboutUs{
+    background-image: linear-gradient(to bottom right, white, #1FFF00);
+    box-sizing: border-box;
+    padding: 10px;
+    height: 700px;
+    color:black;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif
+
+}

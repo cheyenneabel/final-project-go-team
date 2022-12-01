@@ -52,18 +52,18 @@ class SignUpPage extends React.Component{
                     <p id="signupConfirm">Please enter all info and click submit to create account</p>
                     <form onSubmit={this.handleSignup}>
                 
-                        <input type="text" placeholder="First Name" onChange={(e) => {e.preventDefault(); this.setState({firstName: e.target.value})}}></input>
+                        <input type="text" id="info" placeholder="First Name" onChange={(e) => {e.preventDefault(); this.setState({firstName: e.target.value})}}></input>
                         
-                        <input type="text" placeholder="Last Name" onChange={(e) => {e.preventDefault(); this.setState({lastName: e.target.value})}}></input>
+                        <input type="text" id="info" placeholder="Last Name" onChange={(e) => {e.preventDefault(); this.setState({lastName: e.target.value})}}></input>
                         
-                        <input type="text" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>
+                        <input type="text" id="info" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>
                         
-                        <input type="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
+                        <input type="password" id="info" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
                        
-                        <input type="password" placeholder="Confirm Password" onChange={this.handlePassword}></input>                   
+                        <input type="password" id="info" placeholder="Confirm Password" onChange={this.handlePassword}></input>                   
                         
                         
-                        <input type="text" placeholder="City" onChange={(e) => {e.preventDefault(); this.setState({city: e.target.value})}}></input>
+                        <input type="text" id="info" placeholder="City" onChange={(e) => {e.preventDefault(); this.setState({city: e.target.value})}}></input>
 
                         <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value})}}>
                             <label>Select Skill Level:</label>
@@ -72,18 +72,13 @@ class SignUpPage extends React.Component{
                             <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>
                             <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>
                         </div>
-                        <input type="Submit"></input>
+                        <input type="Submit" id="submit"></input>
                     </form>
-
 
             </div>
         )
     }
 
-
-
 }
-  
-
 
 export default SignUpPage;

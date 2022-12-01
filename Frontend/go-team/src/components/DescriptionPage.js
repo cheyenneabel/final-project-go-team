@@ -6,7 +6,7 @@ const DescriptionPage = () => {
     return(
         <div className="descriptionPage">
             <h3>Bring It Home</h3>
-                <p>Welcome to Go Team! We are passionate about forming a local recreational sports community.
+                <p className="moreInfo">Welcome to Go Team! We are passionate about forming a local recreational sports community.
                 Have you ever wanted to play a game, but you're down one person? Or what if you want
                 to make some new friends and start a weekly game at a local park?
 
@@ -18,7 +18,7 @@ const DescriptionPage = () => {
                 We hope that this is an accessible and fun way for our community to play more sports!
                     
                 </p>
-                <h4>Log in or Sign up to get started!</h4>
+                <h4>Log in or sign up to get started.</h4>
          </div>)
 }
 
