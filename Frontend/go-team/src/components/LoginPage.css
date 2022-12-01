@@ -1,4 +1,4 @@
-label {
+#submit{
     color: #000D1B;
     background-color: rgb(197, 251, 213);
     text-align:center;
@@ -7,18 +7,20 @@ label {
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
+    border-style: none;
+    border-radius: 10px;
 }
 
 .signUp {
-   position:absolute;
+   position:static;
    bottom: 300px;
-   left: 400px;
+   
    width: 300px;
    padding:20px;
    text-decoration: none;
    color:#000D1B;
    border-style: none;
-   border-radius: 20px;
+   border-radius: 10px;
    font-size: small;
    font-weight: bold;
    background-color: rgb(197, 251, 213);
