@@ -100,7 +100,7 @@ public class UserModel {
         return matches;
     }
 
-    public void setMatches(Collection<Matches> matches) {
-        this.matches = matches;
+    public void setMatches(Matches match) {
+        matches.add(match);
     }
 }
