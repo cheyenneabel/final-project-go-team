@@ -2,7 +2,7 @@
 
 ### Description
 
-Welcome to Go Team! Here is where we form a true recreational sports community.
+Welcome to Go Team! We are passionate about forming a local recreational sports community.
 Have you ever wanted to play a game, but you're down one person? Or what if you want
 to make some new friends and start a weekly game at a local park? Go Team is an application to help people in the area play more games. Once you have
 an account, you will select the sport you are interested in playing. Then you are given
