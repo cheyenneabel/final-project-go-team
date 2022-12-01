@@ -11,7 +11,8 @@ a game by skill level or location.
 
 We hope that this is an accessible and fun way for our community to play more sports!
 
-We used Java, MVC, API, Javascript, HTML, and CSS. We are working on adding more sports and search fields in the future.
+We used Java, MVC, API, Javascript, HTML, and CSS. We are working on adding more sports and search fields in the future, and we hope to improve
+the look and the feel.
 
 ### How to Install and Run
 
