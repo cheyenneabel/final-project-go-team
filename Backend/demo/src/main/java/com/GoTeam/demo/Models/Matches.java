@@ -54,6 +54,9 @@ public class Matches {
         return time;
     }
 
+    public long getId() {
+        return id;
+    }
 }
 
 

@@ -1,18 +1,26 @@
 package com.GoTeam.demo.Controllers;
 
 import com.GoTeam.demo.Models.Matches;
+import com.GoTeam.demo.Models.UserModel;
 import com.GoTeam.demo.Repositories.MatchesRepository;
+import com.GoTeam.demo.Repositories.UserRepo;
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
 public class MatchesController {
     private MatchesRepository matchesRepo;
+    private UserRepo userRepo;
 
-    public MatchesController(MatchesRepository matchesrepo) {
-        matchesRepo = matchesrepo;
+    public MatchesController(MatchesRepository matchesrepo, UserRepo userRepo) {
+        this.matchesRepo = matchesrepo;
+        this.userRepo= userRepo;
     }
 
     @GetMapping("/location")
@@ -86,15 +94,40 @@ public class MatchesController {
     public Matches getDateAndSkillLevelAndLocationAndTime(@PathVariable int date, @PathVariable String skillLevel, @PathVariable String location, @PathVariable int time) {
         return matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
     }
+
     @GetMapping("/DateAndSkillLevelAndTime/{date}/{skillLevel}/{time}")
     public Iterable<Matches> getDateAndSkillLevelAndTime(@PathVariable int date, @PathVariable String skillLevel, @PathVariable int time) {
         return matchesRepo.findBySkillLevelAndDateAndTime(skillLevel, date, time);
     }
-    @PostMapping("/Schedule")
-    public void schedule(@RequestBody Matches match) {
-        Optional <Matches> existingMatch = matchesRepo.findByDateAndTimeAndLocation(match.getDate(),match.getTime(),match.getLocation());
-        if(existingMatch.isEmpty()){
+
+    @PostMapping("/Schedule/{id}")
+    public void schedule(@RequestBody Matches match, @PathVariable UUID id) {
+        Optional<Matches> existingMatch = matchesRepo.findByDateAndTimeAndLocation(match.getDate(), match.getTime(), match.getLocation());
+        if (existingMatch.isEmpty()) {
+            UserModel existingUser = userRepo.findById(id).get();
             matchesRepo.save(match);
         }
     }
-}
+
+    @GetMapping("/Matches")
+    public Iterable<Matches> getAllMatches() {
+        return matchesRepo.findAll();
+    }
+
+    @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
+    public void Matches(@PathVariable int time, @PathVariable int date, @PathVariable String skillLevel, @PathVariable String location) {
+        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
+        long matchesId = matches.getId();
+        matchesRepo.deleteById(matchesId);
+
+    }
+    @PutMapping("/combined")
+    public Matches updateMatch(@RequestBody Matches incomingMatch){
+        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime()).get();
+
+
+    }
+
+
+
+    }
