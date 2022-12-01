@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import './MainPage.css';
 
 const MainPage = () => (
-    <section className="mainPage">
+    <section className="descriptionPage">
 
         <NavLink id="tennisSchedule" to="/tennisSchedule">Join a Match</NavLink>
         <NavLink id="postATennisMatch" to="/postATennisMatch">Schedule a Match</NavLink>
@@ -12,4 +12,4 @@ const MainPage = () => (
 
 )
 
-export default MainPage
+export default MainPage;

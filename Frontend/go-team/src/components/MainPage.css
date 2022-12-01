@@ -3,10 +3,9 @@
     height: fit-content;
     flex-direction: row;
     justify-content:space-evenly;
-    position: sticky;
+    position:sticky;
     background-color: white;
 }
-
 
 section a{
     color: black;
@@ -14,8 +13,9 @@ section a{
     border-radius: 30px;
     text-align:center;
     line-height: 100 px;
-    margin: 80px;
+    margin: 30px;
     padding: 150px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size:large;
 }
