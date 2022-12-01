@@ -105,6 +105,7 @@ public class MatchesController {
         Optional<Matches> existingMatch = matchesRepo.findByDateAndTimeAndLocation(match.getDate(), match.getTime(), match.getLocation());
         if (existingMatch.isEmpty()) {
             UserModel existingUser = userRepo.findById(id).get();
+            existingUser.setMatches(existingMatch.get());
             matchesRepo.save(match);
         }
     }
