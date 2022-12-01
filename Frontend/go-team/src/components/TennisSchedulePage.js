@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from 'react';
 import './TennisSchedulePage.css';
 
 const TennisSchedulePage = () => (
+    
     <div className="tennisSchedulePage">
         <h2 id="scheduleGreeting">Join a match</h2>
             <div className="scheduleText">
@@ -19,6 +20,8 @@ const TennisSchedulePage = () => (
                     //          create a button to join the selected game
 
                 }
+
+
             </div>
         
     </div>
