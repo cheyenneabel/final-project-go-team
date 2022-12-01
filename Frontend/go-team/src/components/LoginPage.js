@@ -26,11 +26,11 @@ class LoginPage extends React.Component{
    render() {
     return(
         <div className="Login">
-            <h3>Login Page</h3> 
+            <h3>Login</h3> 
             <form onSubmit={this.handleLogin}>
                 
-                <input type="text" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
-                <input type="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
+                <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
+                <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
                 <input type="submit" id="submit" value = "Login"></input>
          
             </form>

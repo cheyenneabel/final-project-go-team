@@ -1,27 +1,43 @@
 #submit{
-    color: #000D1B;
-    background-color: rgb(197, 251, 213);
+    color: white;
+    background-color: black;
     text-align:center;
     line-height: 20px;
-    margin: 80px;
+    margin: 50px;
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
+    font-size: medium;
     border-style: none;
     border-radius: 10px;
+    
 }
 
 .signUp {
-   position:static;
-   bottom: 300px;
-   
-   width: 300px;
+   bottom: 200px;
+   width: 200px;
    padding:20px;
+   margin-top: 10px;
    text-decoration: none;
-   color:#000D1B;
+   box-sizing: border-box;
+   color:white;
    border-style: none;
    border-radius: 10px;
-   font-size: small;
+   font-size: medium;
    font-weight: bold;
-   background-color: rgb(197, 251, 213);
+   background-color: black;
+}
+
+#email, #password{
+    background-color: rgb(197, 251, 213);
+    display: flex;
+    flex-direction: row row;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 20px;
+    font-weight: bolder;
+    font-size: medium;
+    border-style: solid;
+    border-color: #1FFF00
 }
