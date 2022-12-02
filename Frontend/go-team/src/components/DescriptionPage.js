@@ -1,15 +1,6 @@
 import React from "react";
 
 
-
-const DescriptionPage = () => {
-    return (
-        <h1>Description of the app</h1>
-    )
-
-import './DescriptionPage.css';
-
-
 const DescriptionPage = () => {
     return(
         <div className="descriptionPage">
