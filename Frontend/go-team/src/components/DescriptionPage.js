@@ -1,4 +1,12 @@
 import React from "react";
+
+
+
+const DescriptionPage = () => {
+    return (
+        <h1>Description of the app</h1>
+    )
+
 import './DescriptionPage.css';
 
 
@@ -20,6 +28,7 @@ const DescriptionPage = () => {
                 </p>
                 <h4>Log in or sign up to get started.</h4>
          </div>)
+
 }
 
 export default DescriptionPage;
