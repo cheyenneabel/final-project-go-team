@@ -22,8 +22,9 @@
     margin-right:auto;
     padding: 5px;
     border-radius: 5px;
-    font-weight: bolder;
-    font-size: medium;
+    text-align: center;
+    font-weight: bold;
+    font-size: small;
     border-style: solid;
     border-color: #1FFF00
 }

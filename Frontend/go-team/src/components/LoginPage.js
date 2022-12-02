@@ -31,10 +31,10 @@ class LoginPage extends React.Component{
                 
                 <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
                 <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
-                <input type="submit" id="submit" value = "Login"></input>
+                <input type="submit" id="submit" value ="Login"></input>
          
             </form>
-        <NavLink className="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
+        <NavLink id="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
     </div>
     );
 }}
