@@ -17,10 +17,10 @@
     background-color: rgb(197, 251, 213);
     display: flex;
     flex-direction: row row;
-    margin-top: 5px;
+    margin-top: 20px;
     margin-left:auto;
     margin-right:auto;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
