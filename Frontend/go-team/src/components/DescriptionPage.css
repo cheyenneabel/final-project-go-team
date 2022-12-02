@@ -1,0 +1,22 @@
+
+.descriptionPage {
+    background-image: linear-gradient(to bottom right, white, #1FFF00);
+    box-sizing: border-box;
+    padding: 20px;
+    height: 700px;
+    color:black;
+    font-weight: bolder;
+    font-size: large;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.moreInfo {
+    background-color: #91FB89;
+    width: 900px;
+    margin: auto;
+    border: 10px solid black;
+    padding: 50px;
+    text-align: justify;
+    font-weight: normal;
+}
