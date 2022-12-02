@@ -20,7 +20,7 @@ the look and the feel.
   1. Open final-project-team-200 in Intellij Idea and run the application.
   2. While the application is running, open the frontend of the project and npm start into your Git Bash or Terminal.
 
-### How to Use Go Team
+#### **How to Use Go Team**
   * The user will begin by signing up to create an account. Once you are logged in, you can select the sport you would like to play.
   * Upon selecting your sport, you will decide whether you would like to join an available game or schedule a new game.
   * User can search available games by either location or skill level. Click the "join" button to sign up for the game.
