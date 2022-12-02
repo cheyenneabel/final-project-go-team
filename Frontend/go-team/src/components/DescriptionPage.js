@@ -7,4 +7,4 @@ const DescriptionPage = () => {
     )
 }
 
-export default DescriptionPage
+export default DescriptionPage;
