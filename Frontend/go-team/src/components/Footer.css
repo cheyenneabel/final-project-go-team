@@ -1,15 +1,17 @@
 .footer{
     position:fixed;
     background-color: #000D1B;
+    box-sizing: border-box;
     font-size: larger;
     text-align: center;
-    bottom: 0px;
+    bottom:0px;
+    height:100px;
     width: 100%;
 
 }
 
 section{
     color: white;
-    margin: 3%;
+    margin-top: 20px;
 }
 

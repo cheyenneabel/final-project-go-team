@@ -22,9 +22,9 @@ public class Populator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Matches match1 = new Matches("Columbus",8,"beginner",4);
+        Matches match1 = new Matches("Columbus","9/20","beginner","6:30");
         matchrepo.save(match1);
-        Matches match2 = new Matches("Cleveland",8,"pro",4);
+        Matches match2 = new Matches("Cleveland","8/24","pro","4:00");
         matchrepo.save(match2);
 
     }

@@ -26,16 +26,15 @@ class LoginPage extends React.Component{
    render() {
     return(
         <div className="Login">
-            <h3>Login Page</h3> 
+            <h3>Login</h3> 
             <form onSubmit={this.handleLogin}>
-                <label id="email">Email</label>
-                <input type="text" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>
-                <label id="password" >Password</label>
-                <input type="password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
-                <input type="submit" value = "Login"></input>
+                
+                <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
+                <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
+                <input type="submit" id="submit" value ="Login"></input>
          
             </form>
-        <NavLink className="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
+        <NavLink id="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
     </div>
     );
 }}
