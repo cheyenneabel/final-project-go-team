@@ -1,6 +1,6 @@
-# Go Team - Find a Game Near You
+# **Go Team - Find a Game Near You**
 
-### Description
+#### **Introduction**
 
 Welcome to Go Team! We are passionate about forming a local recreational sports community.
 Have you ever wanted to play a game, but you're down one person? Or what if you want
@@ -14,12 +14,15 @@ We hope that this is an accessible and fun way for our community to play more sp
 We used Java, MVC, API, Javascript, HTML, and CSS. We are working on adding more sports and search fields in the future, and we hope to improve
 the look and the feel.
 
-### How to Install and Run
+---
 
-(step by step guide)
+#### **How to Install and Run**
+  1. Open final-project-team-200 in Intellij Idea and run the application.
+  2. While the application is running, open the frontend of the project and npm start into your Git Bash or Terminal.
 
 ### How to Use Go Team
-
-(provide instructions with examples) 
+  * The user will begin by signing up to create an account. Once you are logged in, you can select the sport you would like to play.
+  * Upon selecting your sport, you will decide whether you would like to join an available game or schedule a new game.
+  * User can search available games by either location or skill level. Click the "join" button to sign up for the game.
 
 
