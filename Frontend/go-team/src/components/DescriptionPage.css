@@ -2,7 +2,7 @@
 .descriptionPage {
     box-sizing: border-box;
     padding: 20px;
-    height: 700px;
+    height: auto;
     color:black;
     font-weight: bolder;
     font-size: large;
