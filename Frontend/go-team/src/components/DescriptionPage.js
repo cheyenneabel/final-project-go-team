@@ -1,4 +1,5 @@
 import React from "react";
+import "./DescriptionPage.css"
 
 
 const DescriptionPage = () => {

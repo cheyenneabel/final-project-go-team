@@ -1,5 +1,6 @@
 import React from "react";
 import './SignUpPage.css';
+import { NavLink } from "react-router-dom";
 
 class SignUpPage extends React.Component{
 
@@ -72,7 +73,7 @@ class SignUpPage extends React.Component{
                             <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>
                             <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>
                         </div>
-                        <input type="Submit" id="submit"></input>
+                        <NavLink to='/sports'><input type="Submit" id="submit"></input></NavLink>
                     </form>
 
             </div>
