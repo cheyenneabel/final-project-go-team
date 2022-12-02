@@ -8,6 +8,10 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import DescriptionPage from './components/DescriptionPage';
 
+import SportsPage from './components/SportsPage';
+
+
+
 const PageSwitch = () => {
 
     return (
@@ -20,6 +24,10 @@ const PageSwitch = () => {
             <Route exact path = "/loginPage" component={LoginPage} />
             <Route exact path = "/signUpPage" component={SignUpPage} />
             <Route exact path = "/" component={DescriptionPage} />
+
+            <Route exact path = "/sports" component={SportsPage} />
+
+
         </Switch>
     )
 }

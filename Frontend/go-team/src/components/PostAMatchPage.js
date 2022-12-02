@@ -1,11 +1,55 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactDOM } from "react-dom/client";
 
-const PostAMatchPage = () => (
-  <div className="postAMatch">
-    <h2>Schedule a Match</h2>
-    {
+class PostAMatchPage extends React.Component {
+ constructor (props) {
+  super(props)
+  this.state = {
+    location: "",
+    skillLevel:"",
+    date:"",
+    time:""
+  }
+}
+      
+    hundleSubmit(e){
+      e.preventDefault();
+      if(this.state.location !== "" && this.state.date !=="" && this.state.time !=="" && this.state.skillLevel !=="") {
+        fetch('https://localhost:8080/schedule',)
+
+      }
+       
+      
+    }
+      
+      render () {
+        return (
+          <div className="matches">
+            <h3 className="schedule">Schedule A Match</h3>
+            <form onSubmit={this.hundleSubmit}>
+              <input type="text" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value})}}></input>
+              <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value})}}>                           
+                <label>Select Skill Level:</label>                           
+                <label><input type="radio" id="skillLevelButton" value="Beginner" name="skillLevel"></input>Beginner</label>                         
+                <label><input type="radio" id="skillLevelButton" value="Intermediate" name="skillLevel"></input>Intermediate</label>                     
+                <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>                       
+                <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>                      
+              </div>
+              <input type="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
+              <input type="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
+            </form>
+          </div>
+
+
+            
+        )
+      }
+
+      
+
+
+  
         // create a fetch post. 
         
         //create input field for user to enter location
@@ -16,26 +60,8 @@ const PostAMatchPage = () => (
 
         // create "schedule" button to post the match once the button is clicked
 
-    }
-     {
-      //  const [location, setLocation] = useState("";)
-        // <form>
-        //     <label>Enter your location:
-        //         <input
-        //             type="text"
-        //             value={location}
-        //             onChange={(e) => setLocation(e.target.value)}
-        //         />
-        //     </label>    
-        // </form>    
     
-   
-
-        // const root = ReactDOM.createRoot(document.getElementById('root'));
-        // root.render(<postLocation />);
   
-    }
-  </div>
-)
 
-export default PostAMatchPage;
+    }
+export default PostAMatchPage
