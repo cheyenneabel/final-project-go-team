@@ -6,25 +6,34 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface MatchesRepository extends CrudRepository<Matches,Long>{
-    Iterable <Matches> findByDateAndTime(int date, int time);
-    Iterable <Matches> findByLocationAndTime(String location, int time);
-    Iterable <Matches> findBySkillLevelAndTime(String skillLevel, int time);
 
-    Iterable <Matches> findByLocationAndDate(String location, int date);
+    Iterable <Matches> findByDateAndTime(String date, String time);
+    Iterable <Matches> findByLocationAndTime(String location, String time);
+    Iterable <Matches> findBySkillLevelAndTime(String skillLevel, String time);
+
+    Iterable <Matches> findByLocationAndDate(String location, String date);
 
     Iterable <Matches> findByLocationAndSkillLevel(String location, String skillLevel);
 
-    Iterable <Matches> findByDateAndSkillLevel(int date, String skillLevel);
+    Iterable <Matches> findByDateAndSkillLevel(String date, String skillLevel);
 
-    Optional <Matches> findByDateAndTimeAndLocation(int date, int time, String location);
+    Optional <Matches> findByDateAndTimeAndLocation(String date, String time, String location);
 
-    Iterable <Matches> findBySkillLevelAndTimeAndLocation(String skillLevel, int time, String location);
+    Iterable <Matches> findBySkillLevelAndTimeAndLocation(String skillLevel, String time, String location);
 
-    Iterable <Matches> findBySkillLevelAndDateAndLocation(String skillLevel, int date, String location);
+    Iterable <Matches> findBySkillLevelAndDateAndLocation(String skillLevel, String date, String location);
 
-    Optional <Matches> findBySkillLevelAndDateAndLocationAndTime(String skillLevel, int date, String location, int time);
+    Optional <Matches> findBySkillLevelAndDateAndLocationAndTime(String skillLevel, String date, String location, String time);
 
-    Iterable <Matches> findBySkillLevelAndDateAndTime(String skillLevel, int date, int time);
+    Iterable <Matches> findBySkillLevelAndDateAndTime(String skillLevel, String date, String time);
+
+    Iterable <Matches> findByLocation(String location);
+
+    Iterable <Matches> findByDate(String date);
+
+    Iterable <Matches> findByTime(String time);
+
+    Iterable <Matches> findBySkillLevel(String skillLevel);
 
 
 

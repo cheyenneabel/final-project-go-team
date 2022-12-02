@@ -23,43 +23,43 @@ public class MatchesController {
         this.userRepo= userRepo;
     }
 
-    @GetMapping("/location")
-    public Iterable<Matches> getAllLocations() {
-        return matchesRepo.findAll();
+    @GetMapping("/matches/{location}")
+    public Iterable<Matches> getAllLocations(@PathVariable String location) {
+        return matchesRepo.findByLocation(location);
     }
 
-    @GetMapping("/date")
-    public Iterable<Matches> getAllDates() {
-        return matchesRepo.findAll();
+    @GetMapping("/matches/{date}")
+    public Iterable<Matches> getAllDates(@PathVariable String date) {
+        return matchesRepo.findByDate(date);
     }
 
-    @GetMapping("/time")
-    public Iterable<Matches> getAllTimes() {
-        return matchesRepo.findAll();
+    @GetMapping("/matches/{time}")
+    public Iterable<Matches> getAllTimes(@PathVariable String time) {
+        return matchesRepo.findByTime(time);
     }
 
-    @GetMapping("/level")
-    public Iterable<Matches> getSkillLevels() {
-        return matchesRepo.findAll();
+    @GetMapping("/matches/{skillLevel}")
+    public Iterable<Matches> getSkillLevels(@PathVariable String skillLevel) {
+        return matchesRepo.findBySkillLevel(skillLevel);
     }
 
     @GetMapping("/DateAndTime/{date}/{time}")
-    public Iterable<Matches> getDateAndTime(@PathVariable int date, @PathVariable int time) {
+    public Iterable<Matches> getDateAndTime(@PathVariable String date, @PathVariable String time) {
         return matchesRepo.findByDateAndTime(date, time);
     }
 
     @GetMapping("/LocationAndTime/{location}/{time}")
-    public Iterable<Matches> getLocationAndTime(@PathVariable String location, @PathVariable int time) {
+    public Iterable<Matches> getLocationAndTime(@PathVariable String location, @PathVariable String time) {
         return matchesRepo.findByLocationAndTime(location, time);
     }
 
     @GetMapping("/skillLevelAndTime/{skillLevel}/{time}")
-    public Iterable<Matches> getSkillLevelAndTime(@PathVariable String skillLevel, @PathVariable int time) {
+    public Iterable<Matches> getSkillLevelAndTime(@PathVariable String skillLevel, @PathVariable String time) {
         return matchesRepo.findBySkillLevelAndTime(skillLevel, time);
     }
 
     @GetMapping("/LocationAndDate/{location}/{date}")
-    public Iterable<Matches> getLocationAndDate(@PathVariable String location, @PathVariable int date) {
+    public Iterable<Matches> getLocationAndDate(@PathVariable String location, @PathVariable String date) {
         return matchesRepo.findByLocationAndDate(location, date);
     }
 
@@ -69,34 +69,34 @@ public class MatchesController {
     }
 
     @GetMapping("/DateAndSkillLevel/{date}/{skillLevel}")
-    public Iterable<Matches> getDateAndSkillLevel(@PathVariable int date, @PathVariable String skillLevel) {
+    public Iterable<Matches> getDateAndSkillLevel(@PathVariable String date, @PathVariable String skillLevel) {
         return matchesRepo.findByDateAndSkillLevel(date, skillLevel);
     }
 
     @GetMapping("/DateAndTimeAndLocation/{date}/{time}/{location}")
-    public Matches getDateAndLocationAndTime(@PathVariable int date, @PathVariable String location, @PathVariable int time) {
+    public Matches getDateAndLocationAndTime(@PathVariable String date, @PathVariable String location, @PathVariable String time) {
         return matchesRepo.findByDateAndTimeAndLocation(date, time, location).get();
 
     }
 
     @GetMapping("/skillLevelAndTimeAndLocation/{skillLevel}/{time}/{location}")
-    public Iterable<Matches> getSkillLevelAndTimeAndLocation(@PathVariable String skillLevel, @PathVariable int time, @PathVariable String location) {
+    public Iterable<Matches> getSkillLevelAndTimeAndLocation(@PathVariable String skillLevel, @PathVariable String time, @PathVariable String location) {
         return matchesRepo.findBySkillLevelAndTimeAndLocation(skillLevel, time, location);
 
     }
 
     @GetMapping("/DateAndSkillLevelAndLocation/{date}/{skillLevel}/{location}")
-    public Iterable<Matches> getDateAndSkillLevelAndLocation(@PathVariable int date, @PathVariable String skillLevel, @PathVariable String location) {
+    public Iterable<Matches> getDateAndSkillLevelAndLocation(@PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
         return matchesRepo.findBySkillLevelAndDateAndLocation(skillLevel, date, location);
     }
 
     @GetMapping("/DateAndSkillLevelAndLocationAndTime/{date}/{skillLevel}/{location}/{time}")
-    public Matches getDateAndSkillLevelAndLocationAndTime(@PathVariable int date, @PathVariable String skillLevel, @PathVariable String location, @PathVariable int time) {
+    public Matches getDateAndSkillLevelAndLocationAndTime(@PathVariable String date, @PathVariable String skillLevel, @PathVariable String location, @PathVariable String time) {
         return matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
     }
 
     @GetMapping("/DateAndSkillLevelAndTime/{date}/{skillLevel}/{time}")
-    public Iterable<Matches> getDateAndSkillLevelAndTime(@PathVariable int date, @PathVariable String skillLevel, @PathVariable int time) {
+    public Iterable<Matches> getDateAndSkillLevelAndTime(@PathVariable String date, @PathVariable String skillLevel, @PathVariable String time) {
         return matchesRepo.findBySkillLevelAndDateAndTime(skillLevel, date, time);
     }
 
@@ -116,7 +116,7 @@ public class MatchesController {
     }
 
     @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
-    public void Matches(@PathVariable int time, @PathVariable int date, @PathVariable String skillLevel, @PathVariable String location) {
+    public void Matches(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
         Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
         long matchesId = matches.getId();
         matchesRepo.deleteById(matchesId);
@@ -125,10 +125,21 @@ public class MatchesController {
     @PutMapping("/combined")
     public Matches updateMatch(@RequestBody Matches incomingMatch){
         Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime()).get();
-
-
+        matches.setDate(incomingMatch.getDate());
+        matches.setTime(incomingMatch.getTime());
+        matches.setLocation(incomingMatch.getLocation());
+        matches.setSkillLevel(incomingMatch.getSkillLevel());
+        return matches;
     }
-
+    @PutMapping("/join/{email}")
+    public Matches joinMatch(@PathVariable String email, @RequestBody Matches incomingMatch){
+        Optional <Matches> matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime());
+        if(matches.isPresent() && matches.get().getUsers().size() == 1){
+            matches.get().setUsers(userRepo.findByEmail(email).get());
+            return matches.get();
+        }
+        return null;
+    }
 
 
     }

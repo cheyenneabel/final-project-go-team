@@ -12,9 +12,9 @@ public class Matches {
     private long id;
 
     private String location;
-    private int date;
+    private String date;
     private String skillLevel;
-    private int time;
+    private String time;
 
     @ManyToMany (mappedBy = "matches")
     private Collection <UserModel> users;
@@ -23,7 +23,7 @@ public class Matches {
         return users;
     }
 
-    public Matches(String location, int date, String skillLevel, int time) {
+    public Matches(String location, String date, String skillLevel, String time) {
         this.location = location;
         this.date = date;
         this.skillLevel = skillLevel;
@@ -41,7 +41,7 @@ public class Matches {
         return location;
     }
 
-    public int getDate() {
+    public String getDate() {
 
         return date;
     }
@@ -49,13 +49,33 @@ public class Matches {
         return skillLevel;
     }
 
-    public int getTime() {
+    public String getTime() {
 
         return time;
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setSkillLevel(String skillLevel) {
+        this.skillLevel = skillLevel;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setUsers(UserModel user) {
+        users.add(user);
     }
 }
 
