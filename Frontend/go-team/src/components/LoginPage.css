@@ -1,43 +1,35 @@
-#submit{
+.login{
+    border-style: solid;
+    height:auto;
+}
+
+#signUp, #submit {
     color: white;
     background-color: black;
     text-align:center;
     line-height: 20px;
-    margin: 50px;
+    margin: 10px;
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
     font-size: medium;
     border-style: none;
     border-radius: 10px;
-    
-}
-
-.signUp {
-   bottom: 200px;
-   width: 200px;
-   padding:20px;
-   margin-top: 10px;
-   text-decoration: none;
-   box-sizing: border-box;
-   color:white;
-   border-style: none;
-   border-radius: 10px;
-   font-size: medium;
-   font-weight: bold;
-   background-color: black;
 }
 
 #email, #password{
     background-color: rgb(197, 251, 213);
     display: flex;
-    flex-direction: row row;
+    flex-direction: row row row row;
     margin-top: 20px;
     margin-left:auto;
     margin-right:auto;
     padding: 20px;
     font-weight: bolder;
     font-size: medium;
+    text-align: center;
     border-style: solid;
-    border-color: #1FFF00
+    border-radius: 10px;
+    border-color: #1FFF00;
+    box-sizing: border-box;
 }
