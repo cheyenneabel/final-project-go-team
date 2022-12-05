@@ -8,13 +8,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.UUID;
 
 @Entity
 public class UserModel {
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
 
     @NotBlank(message = "Email is mandatory")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", flags = Pattern.Flag.CASE_INSENSITIVE)
@@ -102,5 +101,6 @@ public class UserModel {
 
     public void setMatches(Matches match) {
         matches.add(match);
+
     }
 }
