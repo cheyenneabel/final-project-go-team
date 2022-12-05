@@ -13,7 +13,7 @@ class PostAMatchPage extends React.Component {
   }
 }
       
-    hundleSubmit(e){
+    handleSubmit(e){
       e.preventDefault();
       if(this.state.location !== "" && this.state.date !=="" && this.state.time !=="" && this.state.skillLevel !=="") {
         fetch('https://localhost:8080/schedule',)
@@ -27,7 +27,7 @@ class PostAMatchPage extends React.Component {
         return (
           <div className="matches">
             <h3 className="schedule">Schedule A Match</h3>
-            <form onSubmit={this.hundleSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <input type="text" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value})}}></input>
               <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value})}}>                           
                 <label>Select Skill Level:</label>                           
@@ -38,6 +38,7 @@ class PostAMatchPage extends React.Component {
               </div>
               <input type="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
               <input type="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
+              <input type="Submit" id="submit" value="Join"></input>
             </form>
           </div>
 
@@ -45,23 +46,6 @@ class PostAMatchPage extends React.Component {
             
         )
       }
-
-      
-
-
   
-        // create a fetch post. 
-        
-        //create input field for user to enter location
-
-        // create radio button for user to enter skill level (similar radio button on tennisSchedulePage)
-
-        // create input field for user to enter date and time (shown as a calendar if we can figure it out)
-
-        // create "schedule" button to post the match once the button is clicked
-
-    
-  
-
     }
 export default PostAMatchPage
