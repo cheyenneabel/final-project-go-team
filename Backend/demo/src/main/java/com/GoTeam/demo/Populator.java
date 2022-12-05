@@ -1,7 +1,9 @@
 package com.GoTeam.demo;
 
 import com.GoTeam.demo.Models.Matches;
+import com.GoTeam.demo.Models.UserModel;
 import com.GoTeam.demo.Repositories.MatchesRepository;
+import com.GoTeam.demo.Repositories.UserRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +12,11 @@ import org.springframework.stereotype.Component;
 
 public class Populator implements CommandLineRunner {
     private MatchesRepository matchrepo;
+    private UserRepo userRepo;
 
-    public Populator(MatchesRepository matchrepo) {
+    public Populator(MatchesRepository matchrepo, UserRepo userRepo) {
         this.matchrepo = matchrepo;
+        this.userRepo = userRepo;
     }
 
     @Override
@@ -22,7 +26,6 @@ public class Populator implements CommandLineRunner {
         matchrepo.save(match1);
         Matches match2 = new Matches("Cleveland","8/24","pro","4:00");
         matchrepo.save(match2);
-
 
     }
 }
