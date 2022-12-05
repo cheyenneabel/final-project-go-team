@@ -44,5 +44,9 @@ public class Populator implements CommandLineRunner {
 
 
 
+
+//        UserModel user1 = new UserModel("lol@lol.com", "$2a$10$CsqfzRjPBvTOlGcfnI4YDuVd5pHvbu9HLklUXTorrG2QSGYTJT8Mq", "T","J", "pro", "dublin", match1, match2);
+//        userRepo.save(user1);
+
     }
 }

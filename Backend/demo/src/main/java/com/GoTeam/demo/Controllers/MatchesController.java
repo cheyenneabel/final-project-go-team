@@ -4,6 +4,7 @@ import com.GoTeam.demo.Models.Matches;
 import com.GoTeam.demo.Models.UserModel;
 import com.GoTeam.demo.Repositories.MatchesRepository;
 import com.GoTeam.demo.Repositories.UserRepo;
+import com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
 import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -101,12 +102,14 @@ public class MatchesController {
     }
 
     @PostMapping("/Schedule/{id}")
-    public void schedule(@RequestBody Matches match, @PathVariable UUID id) {
+    public void schedule(@RequestBody Matches match, @PathVariable Long id) {
         Optional<Matches> existingMatch = matchesRepo.findByDateAndTimeAndLocation(match.getDate(), match.getTime(), match.getLocation());
         if (existingMatch.isEmpty()) {
             UserModel existingUser = userRepo.findById(id).get();
-            existingUser.setMatches(existingMatch.get());
+//            Matches newMatch = new Matches(match.getLocation(), match.getDate(), match.getSkillLevel(), match.getTime());
             matchesRepo.save(match);
+            existingUser.setMatches(match);
+            userRepo.save(existingUser);
         }
     }
 
@@ -139,6 +142,11 @@ public class MatchesController {
             return matches.get();
         }
         return null;
+    }
+    @GetMapping("{id}/myMatches")
+    public Iterable <Matches> myMatches(@PathVariable long id){
+        UserModel user = userRepo.findById(id).get();
+        return matchesRepo.findByUsers(user);
     }
 
 
