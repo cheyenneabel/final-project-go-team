@@ -7,5 +7,13 @@
 }
 
 .sport{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 80px;
+}
+
+.logo{
+    min-width: 50%;
+    min-height: 100%;
 }
