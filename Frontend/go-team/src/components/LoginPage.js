@@ -1,6 +1,9 @@
 import React from "react"
 import { NavLink } from "react-router-dom";
 import './LoginPage.css';
+import { Redirect } from "react-router-dom";
+import SportsPage from "./SportsPage";
+
 
 class LoginPage extends React.Component{
     constructor(props){
@@ -13,11 +16,12 @@ class LoginPage extends React.Component{
             this.handleLogin=this.handleLogin.bind(this)
     }
 
+
          handleLogin(e) {e.preventDefault();
              console.log("LOGIN");
              console.log(e);
-             console.log(this.state.confirmed);
-             if(this.state.confirmed && this.state.email !== "" && this.state.password !== "") 
+            
+             if(this.state.email !== "" && this.state.password !== "") 
      
              {fetch('http://localhost:8080/login',
              
@@ -27,19 +31,14 @@ class LoginPage extends React.Component{
              body: JSON.stringify({
                  
                  "email": this.state.email,
-                 "password": this.state.password,
+                 "password": this.state.password
                 
              })})
-             .then(response => {if(response.ok) response.json})
-             .then(json)
-            
+             .then(response => {if(response.ok) {return response.json(); {this.setState({res: true})}} else throw Error(<p>{response.statusText}</p>)})            
              }
-             else { document.getElementById("title").innerHTML = "Error confirming password"}
+             else { document.getElementById("title").innerHTML = "Error confirming password" }
      
-         }
-     
-         handlePassword(e) {e.preventDefault();
-             this.setState({confirmed: true})
+          
          }
 
    render() {
@@ -50,9 +49,23 @@ class LoginPage extends React.Component{
                 
                 <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
                 <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
-                <NavLink to='/sports'><input type="Submit" id="submit" value="Login"></input></NavLink>
-
+                <input type="Submit" id="submit" value="Login"></input>
+                
             </form>
+            {
+                    // ( {if(this.state.res)}  <NavLink to='/sports'><input type="Submit" id="submit" value="Login"></input></NavLink>)
+                    (
+                        !this.state.res ? <p>  </p> : (
+                            <div>
+                              {
+                                // <NavLink to='/sports'></NavLink>
+                              }
+                              <Redirect to="/sports" /> 
+                            </div>
+                        )
+                    )
+
+                    }
         <NavLink id="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
     </div>
     );
