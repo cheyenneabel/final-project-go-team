@@ -17,8 +17,19 @@ class PostAMatchPage extends React.Component {
       e.preventDefault();
       if(this.state.location !== "" && this.state.date !=="" && this.state.time !=="" && this.state.skillLevel !=="") {
         fetch('https://localhost:8080/schedule',)
-
+       
+      //   {method: 'POST',
+      //   mode:'cors',
+      //   headers: new Headers({'content-type': 'application/json'}),
+      //   body: JSON.stringify({
+      //       "time": this.state.time,
+      //       "date": this.state.date,
+      //       "location": this.state.location,
+      //       "skillLevel": this.state.skillLevel
+      //   })
+      // }
       }
+     
        
       
     }
