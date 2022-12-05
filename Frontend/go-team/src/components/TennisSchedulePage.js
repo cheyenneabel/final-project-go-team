@@ -23,6 +23,7 @@ class TennisSchedulePage extends React.Component {
     }
 // Handling all matches  
     handleAllMatches(e){
+        e.preventDefault();
         fetch(`http://localhost:8080/Matches`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
@@ -34,6 +35,7 @@ class TennisSchedulePage extends React.Component {
     }
 // Handling matches by location
     handleByLocation(e){
+        e.preventDefault();
         fetch(`http://localhost:8080/matches/{location}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
@@ -46,6 +48,7 @@ class TennisSchedulePage extends React.Component {
 
 // Handling matches by skill level
     handleBySkillLevel(e){
+        e.preventDefault();
         fetch(`http://localhost:8080/matches/{skillLevel}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
@@ -58,6 +61,7 @@ class TennisSchedulePage extends React.Component {
 
 // Handling matches by date
     handleByDate(e){
+        e.preventDefault();
         fetch(`http://localhost:8080/matches/{date}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
@@ -70,6 +74,7 @@ class TennisSchedulePage extends React.Component {
 
 // Handling matches by time
     handleByTime(e){
+        e.preventDefault();
         fetch(`http://localhost:8080/matches/{time}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
