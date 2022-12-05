@@ -25,6 +25,34 @@ GET http://localhost:8080/LocationAndDate/Hilliard/7-26
 GET http://localhost:8080/LocationAndSkillLevel/Westerville/Advanced
 
 
+###
+GET http://localhost:8080/DateAndSkillLevel/7-25/Beginner
+
+###
+POST http://localhost:8080/Schedule/5
+Content-Type: application/json
+
+{
+    "location": "Columbus",
+    "date": "7-25",
+    "skillLevel": "Beginner",
+    "time": "6:30pm"
+}
+
+
+###
+GET http://localhost:8080/Matches/
+
+
+###
+DELETE  http://localhost:8080/DeleteMatch/7-26/Intermediate/Hilliard/4:00pm
+
+###
+PUT http://localhost:8080/join
+
+###
+PUT http://localhost:8080/combined
+
 
 
 
