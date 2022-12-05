@@ -1,6 +1,7 @@
 package com.GoTeam.demo.Repositories;
 
 import com.GoTeam.demo.Models.Matches;
+import com.GoTeam.demo.Models.UserModel;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
@@ -35,7 +36,7 @@ public interface MatchesRepository extends CrudRepository<Matches,Long>{
 
     Iterable <Matches> findBySkillLevel(String skillLevel);
 
-
+Iterable <Matches> findByUsers(UserModel user);
 
 
 

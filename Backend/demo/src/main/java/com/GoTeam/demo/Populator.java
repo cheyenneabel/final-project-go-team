@@ -26,6 +26,7 @@ public class Populator implements CommandLineRunner {
         matchrepo.save(match1);
         Matches match2 = new Matches("Cleveland","8/24","pro","4:00");
         matchrepo.save(match2);
-
+        UserModel user1 = new UserModel("lol@lol.com", "$2a$10$CsqfzRjPBvTOlGcfnI4YDuVd5pHvbu9HLklUXTorrG2QSGYTJT8Mq", "T","J", "pro", "dublin", match1, match2);
+        userRepo.save(user1);
     }
 }
