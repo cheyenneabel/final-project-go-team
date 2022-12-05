@@ -4,6 +4,7 @@ import com.GoTeam.demo.Models.Matches;
 import com.GoTeam.demo.Models.UserModel;
 import com.GoTeam.demo.Repositories.MatchesRepository;
 import com.GoTeam.demo.Repositories.UserRepo;
+import com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
 import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -141,6 +142,11 @@ public class MatchesController {
             return matches.get();
         }
         return null;
+    }
+    @GetMapping("{id}/myMatches")
+    public Iterable <Matches> myMatches(@PathVariable long id){
+        UserModel user = userRepo.findById(id).get();
+        return matchesRepo.findByUsers(user);
     }
 
 
