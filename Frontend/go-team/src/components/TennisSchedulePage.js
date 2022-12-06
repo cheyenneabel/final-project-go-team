@@ -33,7 +33,7 @@ class TennisSchedulePage extends React.Component {
 // Handling matches by location
     handleByLocation(e){
         e.preventDefault();
-        fetch(`http://localhost:8080/matches/${this.state.cryptidId}`)
+        fetch(`http://localhost:8080/matchesLocation/${this.state.location}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
         this.setState({allMatchesBtnClicked: false})
@@ -85,8 +85,8 @@ class TennisSchedulePage extends React.Component {
    render() {
     return(
         <div className="matches">
-        <h3 className="schedule">Schedule A Match</h3>
-        <form onSubmit={this.handleSubmit}>
+        <h3 className="schedule">Join A Match</h3>
+        <form onSubmit={this.handleByLocation}>
           <input type="text" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value}); console.log(this.state.location)}}></input>
           <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value}); console.log(this.state.skillLevel)}}>                           
             <label>Select Skill Level:</label>                           
@@ -99,6 +99,24 @@ class TennisSchedulePage extends React.Component {
           <input type="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
           <input type="Submit" id="submit" value="Join"></input>
         </form>
+        {
+                (
+                    !this.state.locationBtnClicked ? <p> </p> : (          
+                        <ul>
+                            {
+                                this.state.matches.map((match) => (
+                                    <li key = {match.id}>
+                                        <h3>{match.location}</h3>
+                                        <h4>{match.skillLevel}</h4>
+                                        <p>{match.time}</p>
+                                        <p>{match.date}</p>
+
+                                    </li>))
+                            }
+                        </ul>   
+                    )                      
+                )                         
+            } 
       </div>           
     )
   }
