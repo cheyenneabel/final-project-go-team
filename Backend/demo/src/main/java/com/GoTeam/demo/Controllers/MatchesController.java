@@ -126,7 +126,18 @@ public class MatchesController {
 
 //    }
     
-
+@PutMapping("/removeMatchFromUser/{userId}/{matchId}")
+public void removeMatchFromUser(@PathVariable long userId, @PathVariable long matchId){
+        Optional<UserModel> existingUser = userRepo.findById(userId);
+        Matches matchToRemove = null;
+        for(Matches match: existingUser.get().getMatches()){
+            if (match.getId() == matchId){
+                matchToRemove = match;
+            }
+        }
+        existingUser.get().getMatches().remove(matchToRemove);
+        userRepo.save(existingUser.get());
+}
 
 
     @PutMapping("/combined")
