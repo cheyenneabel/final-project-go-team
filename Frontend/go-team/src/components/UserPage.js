@@ -1,16 +1,65 @@
 import React from "react";
 
-const UserPage = () => {
 
-    {
-        // potentially we will use this page to display a user's account info and allow them to edit their info
-        // skill level, favorite sport, position, age, best time to play
+class UserPage extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            userName: "",
+            scheduledMatches: "",
+            skillLevel: "",
+            location: "",
+            date: "",
+            time: "",
+            buttonClicked: false,
+            myMatches: []
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    return (
-        <h1>this is a UserPage</h1>
 
-    
-    )
+        handleSubmit(e){
+            e.preventDefault();
+            fetch('http://localhost:8080/3/myMatches')
+            .then((response) => response.json())
+            .then((json) => {this.setState({myMatches:json}); console.log(json)})
+            this.setState({buttonClicked: true})
+            
+
+        }
+
+        render() {
+            return (
+                <div className="usersMatches">
+                    <h3>user's profile</h3>
+                    <form onSubmit={this.handleSubmit}>
+                    <input type="submit" value="See My Matches"></input>
+                    </form>
+                    {
+                    (
+                        !this.state.buttonClicked ? <p> </p> : (
+                        <div>
+                            <ul>
+                                {
+                                    this.state.myMatches.map((match) =>(
+                                        <li key = {match.id}>
+                                            <h3>{match.location}</h3>
+                                            <p>{match.date}</p>
+                                            <p> {match.time}</p>
+                                            <p> {match.skillLevel}</p>
+                                        </li>))
+                                }
+                            </ul>
+                        </div>
+                        )
+                    )
+                }
+                </div>
+            )
+        }
 }
+
+   
+
 
 export default UserPage

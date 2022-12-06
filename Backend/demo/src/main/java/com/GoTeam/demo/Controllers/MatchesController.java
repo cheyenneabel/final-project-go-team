@@ -24,22 +24,22 @@ public class MatchesController {
         this.userRepo= userRepo;
     }
 
-    @GetMapping("/matches/{location}")
+    @GetMapping("/matchesLocation/{location}")
     public Iterable<Matches> getAllLocations(@PathVariable String location) {
         return matchesRepo.findByLocation(location);
     }
 
-    @GetMapping("/matches/{date}")
+    @GetMapping("/matchesDate/{date}")
     public Iterable<Matches> getAllDates(@PathVariable String date) {
         return matchesRepo.findByDate(date);
     }
 
-    @GetMapping("/matches/{time}")
+    @GetMapping("/matchesTime/{time}")
     public Iterable<Matches> getAllTimes(@PathVariable String time) {
         return matchesRepo.findByTime(time);
     }
 
-    @GetMapping("/matches/{skillLevel}")
+    @GetMapping("/matchesSkillLevel/{skillLevel}")
     public Iterable<Matches> getSkillLevels(@PathVariable String skillLevel) {
         return matchesRepo.findBySkillLevel(skillLevel);
     }
@@ -118,13 +118,17 @@ public class MatchesController {
         return matchesRepo.findAll();
     }
 
-    @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
-    public void Matches(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
-        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
-        long matchesId = matches.getId();
-        matchesRepo.deleteById(matchesId);
+//    @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
+//    public void deleteMatch(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
+//        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
+//        long matchesId = matches.getId();
+//        matchesRepo.deleteById(matchesId);
 
-    }
+//    }
+    
+
+
+
     @PutMapping("/combined")
     public Matches updateMatch(@RequestBody Matches incomingMatch){
         Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime()).get();

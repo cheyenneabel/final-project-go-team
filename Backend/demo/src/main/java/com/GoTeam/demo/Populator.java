@@ -17,16 +17,36 @@ public class Populator implements CommandLineRunner {
     public Populator(MatchesRepository matchrepo, UserRepo userRepo) {
         this.matchrepo = matchrepo;
         this.userRepo = userRepo;
+
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        Matches match1 = new Matches("Columbus","9/20","beginner","6:30");
+        Matches match1 = new Matches("Columbus","7-25","Beginner","6:30");
         matchrepo.save(match1);
-        Matches match2 = new Matches("Cleveland","8/24","pro","4:00");
+        Matches match2 = new Matches("Hilliard","7-26","Intermediate","4:00");
         matchrepo.save(match2);
-        UserModel user1 = new UserModel("lol@lol.com", "$2a$10$CsqfzRjPBvTOlGcfnI4YDuVd5pHvbu9HLklUXTorrG2QSGYTJT8Mq", "T","J", "pro", "dublin", match1, match2);
+        Matches match3 = new Matches("Westerville","7-24","Advanced","7:00");
+        matchrepo.save(match3);
+        Matches match4 = new Matches("Gahanna","7-28","Expert","9:00");
+        matchrepo.save(match4);
+
+
+        UserModel user1 = new UserModel("Omar@gmail.com","Omar1","Omar","AlKhulaidi","Intermediate","Hilliard", match2);
         userRepo.save(user1);
+        UserModel user2 = new UserModel("Cheyenne@gmail.com","Cheyenne2","Cheyenne","Abel","Beginner","Columbus", match1);
+        userRepo.save(user2);
+        UserModel user3 = new UserModel("Ayanle@gmail.com","Ayanle3","Ayanle","Dahir","Advanced","Westerviille", match3);
+        userRepo.save(user3);
+        UserModel user4 = new UserModel("Thana@gmail.com","Thana4","Thana","Jaradat","Expert","Gahanna", match4);
+        userRepo.save(user4);
+
+
+
+
+//        UserModel user1 = new UserModel("lol@lol.com", "$2a$10$CsqfzRjPBvTOlGcfnI4YDuVd5pHvbu9HLklUXTorrG2QSGYTJT8Mq", "T","J", "pro", "dublin", match1, match2);
+//        userRepo.save(user1);
+
     }
 }
