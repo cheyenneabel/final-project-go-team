@@ -34,7 +34,9 @@ class LoginPage extends React.Component{
                  "password": this.state.password
                 
              })})
-             .then(response => {if(response.ok) {return response.json(); {this.setState({res: true})}} else throw Error(<p>{response.statusText}</p>)})            
+                       
+
+             .then(response => {if(response.ok) {return response.json(); } else throw Error(<p>{response.statusText}</p>)});
              }
              else { document.getElementById("title").innerHTML = "Error confirming password" }
      
@@ -49,21 +51,21 @@ class LoginPage extends React.Component{
                 
                 <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
                 <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
-                <input type="Submit" id="submit" value="Login"></input>
+                <NavLink id="sports" to='/sports'><input type="Submit" id="submit" value="Login"></input></NavLink>
                 
             </form>
             {
                     // ( {if(this.state.res)}  <NavLink to='/sports'><input type="Submit" id="submit" value="Login"></input></NavLink>)
-                    (
-                        !this.state.res ? <p>  </p> : (
-                            <div>
-                              {
-                                // <NavLink to='/sports'></NavLink>
-                              }
-                              <Redirect to="/sports" /> 
-                            </div>
-                        )
-                    )
+                    // (
+                    //     !this.state.res ? <p>  </p> : (
+                    //         <div>
+                    //           {
+                    //             // <NavLink to='/sports'></NavLink>
+                    //           }
+                    //           <Redirect to="/sports" /> 
+                    //         </div>
+                    //     )
+                    // )
 
                     }
         <NavLink id="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
