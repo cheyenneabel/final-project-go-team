@@ -152,6 +152,4 @@ public class MatchesController {
         UserModel user = userRepo.findById(id).get();
         return matchesRepo.findByUsers(user);
     }
-
-
     }
