@@ -118,13 +118,17 @@ public class MatchesController {
         return matchesRepo.findAll();
     }
 
-    @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
-    public void deleteMatch(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
-        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
-        long matchesId = matches.getId();
-        matchesRepo.deleteById(matchesId);
+//    @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
+//    public void deleteMatch(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
+//        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
+//        long matchesId = matches.getId();
+//        matchesRepo.deleteById(matchesId);
 
-    }
+//    }
+    
+
+
+
     @PutMapping("/combined")
     public Matches updateMatch(@RequestBody Matches incomingMatch){
         Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime()).get();
