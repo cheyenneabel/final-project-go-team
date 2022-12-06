@@ -23,13 +23,13 @@ public class Populator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Matches match1 = new Matches("Columbus","7-25","Beginner","6:30pm");
+        Matches match1 = new Matches("Columbus","7-25","Beginner","6:30");
         matchrepo.save(match1);
-        Matches match2 = new Matches("Hilliard","7-26","Intermediate","4:00pm");
+        Matches match2 = new Matches("Hilliard","7-26","Intermediate","4:00");
         matchrepo.save(match2);
-        Matches match3 = new Matches("Westerville","7-24","Advanced","7:00pm");
+        Matches match3 = new Matches("Westerville","7-24","Advanced","7:00");
         matchrepo.save(match3);
-        Matches match4 = new Matches("Gahanna","7-28","Expert","9:00pm");
+        Matches match4 = new Matches("Gahanna","7-28","Expert","9:00");
         matchrepo.save(match4);
 
 
