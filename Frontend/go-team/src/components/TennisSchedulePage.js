@@ -33,7 +33,7 @@ class TennisSchedulePage extends React.Component {
 // Handling matches by location
     handleByLocation(e){
         e.preventDefault();
-        fetch('http://localhost:8080/matches/{location}')
+        fetch(`http://localhost:8080/matches/${this.state.cryptidId}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
         this.setState({allMatchesBtnClicked: false})
@@ -100,7 +100,6 @@ class TennisSchedulePage extends React.Component {
                                     <li key = {match.date}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>{match.date}</p>
                                         <p>{match.time}</p>
                                     </li>))
                             }
@@ -109,17 +108,24 @@ class TennisSchedulePage extends React.Component {
                 )                         
             }  
  {/*-------------------------Matches by Location----------------------*/}
-            <button id="by-location" onClick={this.handleByLocation}>Find by Location</button>
+            <h3>Select desired location to view available matches</h3>
+            <form onSubmit={this.handleByLocation}>
+                <select id="select-location" onChange={(e) => {e.preventDefault(); this.setState({location:e.target.value})}}>
+                    <option value="selection" selected disabled>Select a location</option>
+                    <option value="Columbus">Columbus</option>
+                    <option value="Cleveland">Cleveland</option>
+                </select>
+                <input type="submit" value = "See Matches"></input>
+            </form>
             {
                 (
                     !this.state.locationBtnClicked ? <p> </p> : (          
                         <ul>
                             {
                                 this.state.matches.map((match) => (
-                                    <li key = {match.date}>
+                                    <li key = {match.id}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>{match.date}</p>
                                         <p>{match.time}</p>
                                     </li>))
                             }
@@ -138,7 +144,6 @@ class TennisSchedulePage extends React.Component {
                                     <li key = {match.date}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>{match.date}</p>
                                         <p>{match.time}</p>
                                     </li>))
                             }
@@ -157,7 +162,6 @@ class TennisSchedulePage extends React.Component {
                                     <li key = {match.date}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>{match.date}</p>
                                         <p>{match.time}</p>
                                     </li>))
                             }
@@ -177,7 +181,6 @@ class TennisSchedulePage extends React.Component {
                                     <li key = {match.date}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>{match.date}</p>
                                         <p>{match.time}</p>
                                     </li>))
                             }
