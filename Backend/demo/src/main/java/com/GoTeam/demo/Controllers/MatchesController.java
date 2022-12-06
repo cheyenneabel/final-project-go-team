@@ -138,11 +138,11 @@ public class MatchesController {
         matches.setSkillLevel(incomingMatch.getSkillLevel());
         return matches;
     }
-    @PutMapping("/join/{email}")
-    public Matches joinMatch(@PathVariable String email, @RequestBody Matches incomingMatch){
+    @PutMapping("/join/{id}")
+    public Matches joinMatch(@PathVariable long id, @RequestBody Matches incomingMatch){
         Optional <Matches> matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime());
         if(matches.isPresent() && matches.get().getUsers().size() == 1){
-            matches.get().setUsers(userRepo.findByEmail(email).get());
+            matches.get().setUsers(userRepo.findById(id).get());
             return matches.get();
         }
         return null;
@@ -152,6 +152,4 @@ public class MatchesController {
         UserModel user = userRepo.findById(id).get();
         return matchesRepo.findByUsers(user);
     }
-
-
     }
