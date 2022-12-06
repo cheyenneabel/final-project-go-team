@@ -1,7 +1,34 @@
-.scheduleText {
-    background-color: rgb(218, 248, 231);
+.matches{
+    overflow: auto;
+    margin: 10px;
+}
+
+#location, #date, #time {
+    background-color: rgb(197, 251, 213);
+    display: flex;
+    flex-direction: row row;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: small;
     border-style: solid;
-    border-color: rgb(193, 227, 193);
-    margin: 10px 0;
-    padding: 200px;
+    border-color: #1FFF00
+}
+
+#submit, #seeAll{
+    color: white;
+    background-color: black;
+    text-align:center;
+    line-height: 20px;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    border-style: none;
+    border-radius: 10px;
 }
