@@ -1,0 +1,28 @@
+#submit{
+    color: white;
+    background-color: black;
+    text-align:center;
+    line-height: 20px;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    border-style: none;
+    border-radius: 10px;
+}
+#location {
+    background-color: rgb(197, 251, 213);
+    display: flex;
+    flex-direction: row row;
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: small;
+    border-style: solid;
+    border-color: #1FFF00
+}
