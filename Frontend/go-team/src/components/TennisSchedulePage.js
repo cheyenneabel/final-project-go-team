@@ -7,87 +7,65 @@ class TennisSchedulePage extends React.Component {
         this.state = {
           matches: [],
           allMatchesBtnClicked: false,
-          locationBtnClicked: false,
-          skillLevelBtnClicked: false,
-          dateBtnClicked: false,
-          timeBtnClicked: false,
-        };
+          joinBtnClicked:false
+        };       
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAllMatches = this.handleAllMatches.bind(this);
-        this.handleByLocation = this.handleByLocation.bind(this);
-        this.handleBySkillLevel = this.handleBySkillLevel.bind(this);
-        this.handleByDate = this.handleByDate.bind(this);
-        this.handleByTime = this.handleByTime.bind(this);
     }
 // Handling all matches  
     handleAllMatches(e){
         e.preventDefault();
-        fetch('http://localhost:8080/Matches')
+        fetch(`http://localhost:8080/Matches`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
         this.setState({allMatchesBtnClicked: true})
-        this.setState({locationBtnClicked: false})
-        this.setState({skillLevelBtnClicked: false})
-        this.setState({dateBtnClicked: false})
-        this.setState({timeBtnClicked: false})
+        this.setState({joinBtnClicked: false})
+
+       
     }
 // Handling matches by location
-    handleByLocation(e){
+    // handleByLocation(e){
+    //     e.preventDefault();
+    //     this.setState({location: e.target.value})
+    //     if(this.state.skillLevel !==""){
+    //     fetch(`http://localhost:8080/LocationAndSkillLevel/${this.state.location}/${this.state.skillLevel}`) 
+    //     .then((response) => response.json())
+    //     .then((json) => this.setState({matches: json}))
+    //     this.setState({locationBtnClicked: true})}
+    //     else if(this.state.skillLevel !=="" && this.state.date !==""){
+    //         fetch(`http://localhost:8080/DateAndSkillLevelAndLocation/${this.state.date}/${this.state.skillLevel}/${this.state.location}`) 
+    //         .then((response) => response.json())
+    //         .then((json) => this.setState({matches: json}))
+    //         this.setState({locationBtnClicked: true})}  
+    //     else if(this.state.skillLevel !=="" && this.state.date !=="" && this.state.time !==""){
+    //         fetch(`http://localhost:8080/DateAndSkillLevelAndLocationAndTime/${this.state.date}/${this.state.skillLevel}/${this.state.location}/${this.state.time}`) 
+    //         .then((response) => response.json())
+    //         .then((json) => this.setState({matches: json}))
+    //         this.setState({locationBtnClicked: true})} 
+    //     fetch(`http://localhost:8080/Location/${this.state.location}`)
+    //     .then((response) => response.json())
+    //     .then((json) => this.setState({matches: json}))
+    //     this.setState({locationBtnClicked: true})
+        
+    // }
+    handleSubmit(e){
         e.preventDefault();
-        fetch(`http://localhost:8080/matchesLocation/${this.state.location}`)
+        fetch(`http://localhost:8080/DateAndSkillLevelAndLocationAndTime/${this.state.date}/${this.state.skillLevel}/${this.state.location}/${this.state.time}`)
         .then((response) => response.json())
         .then((json) => this.setState({matches: json}))
         this.setState({allMatchesBtnClicked: false})
-        this.setState({locationBtnClicked: true})
-        this.setState({skillLevelBtnClicked: false})
-        this.setState({dateBtnClicked: false})
-        this.setState({timeBtnClicked: false})
-    }
-
-// Handling matches by skill level
-    handleBySkillLevel(e){
-        e.preventDefault()
-        fetch('http://localhost:8080/matches/{skillLevel}')
-        .then((response) => response.json())
-        .then((json) => this.setState({matches: json}))
-        this.setState({allMatchesBtnClicked: false})
-        this.setState({locationBtnClicked: false})
-        this.setState({skillLevelBtnClicked: true})
-        this.setState({dateBtnClicked: false})
-        this.setState({timeBtnClicked: false})
-    }
-
-// Handling matches by date
-    handleByDate(e){
-        e.preventDefault();
-        fetch('http://localhost:8080/matches/{date}')
-        .then((response) => response.json())
-        .then((json) => this.setState({matches: json}))
-        this.setState({allMatchesBtnClicked: false})
-        this.setState({locationBtnClicked: false})
-        this.setState({skillLevelBtnClicked: false})
-        this.setState({dateBtnClicked: true})
-        this.setState({timeBtnClicked: false})
-    }
-
-// Handling matches by time
-    handleByTime(e){
-        e.preventDefault();
-        fetch('http://localhost:8080/matches/{time}')
-        .then((response) => response.json())
-        .then((json) => this.setState({matches: json}))
-        this.setState({allMatchesBtnClicked: false})
-        this.setState({locationBtnClicked: false})
-        this.setState({skillLevelBtnClicked: false})
-        this.setState({dateBtnClicked: false})
-        this.setState({timeBtnClicked: true})
+        this.setState({joinBtnClicked: true})
     }
 
    render() {
     return(
         <div className="matches">
         <h3 className="schedule">Join A Match</h3>
-        <form onSubmit={this.handleByLocation}>
-          <input type="text" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value}); console.log(this.state.location)}}></input>
+        <h4>Click "See All" to view all available matches.</h4>
+        <input type="button" onClick={this.handleAllMatches} id="seeAll" value="See all"></input>
+        <h4>Enter all search fields and click "join" to select the desired match.</h4>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" id="location" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value})}}></input>
           <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value}); console.log(this.state.skillLevel)}}>                           
             <label>Select Skill Level:</label>                           
             <label><input type="radio" id="skillLevelButton" value="Beginner" name="skillLevel"></input>Beginner</label>                         
@@ -95,13 +73,31 @@ class TennisSchedulePage extends React.Component {
             <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>                       
             <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>                      
           </div>
-          <input type="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
-          <input type="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
-          <input type="Submit" id="submit" value="Join"></input>
+          <input type="date" id="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
+          <input type="time" id="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
+          <input type="submit" id="submit" value="Join"></input>
         </form>
         {
                 (
-                    !this.state.locationBtnClicked ? <p> </p> : (          
+                    !this.state.joinBtnClicked ? <p> </p> : (          
+                        <ul>
+                            {
+                                this.state.matches.map((match) => (
+                                    <li key = {match.id}>
+                                        <h3>{match.location}</h3>
+                                        <h4>{match.skillLevel}</h4>
+                                        <p>{match.time}</p>
+                                        <p>{match.date}</p>
+
+                                    </li>))
+                            }
+                        </ul>   
+                    )                      
+                )                         
+            } 
+                {
+                (
+                    !this.state.allMatchesBtnClicked ? <p> </p> : (          
                         <ul>
                             {
                                 this.state.matches.map((match) => (
@@ -122,7 +118,4 @@ class TennisSchedulePage extends React.Component {
   }
 
 }
-
-
-
 export default TennisSchedulePage;
