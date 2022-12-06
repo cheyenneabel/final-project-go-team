@@ -48,10 +48,31 @@ GET http://localhost:8080/Matches/
 DELETE  http://localhost:8080/DeleteMatch/7-26/Intermediate/Hilliard/4:00pm
 
 ###
-PUT http://localhost:8080/join
+PUT http://localhost:8080/join/Ayanle@gmail.com
+Content-Type: application/json
+
+
+{
+    "location": "Westerville",
+    "date": "7-24",
+    "skillLevel": "Advanced",
+    "time": "7:00"
+}
+
+
 
 ###
 PUT http://localhost:8080/combined
+Content-Type: application/json 
+
+
+{
+    
+    "location": "Columbus",
+    "date": "7-25",
+    "skillLevel": "Beginner",
+    "time": "6:30pm"
+}
 
 
 

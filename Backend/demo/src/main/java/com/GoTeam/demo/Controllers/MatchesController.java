@@ -119,7 +119,7 @@ public class MatchesController {
     }
 
     @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
-    public void Matches(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
+    public void deleteMatch(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
         Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
         long matchesId = matches.getId();
         matchesRepo.deleteById(matchesId);
