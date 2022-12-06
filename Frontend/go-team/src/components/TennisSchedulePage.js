@@ -6,6 +6,7 @@ class TennisSchedulePage extends React.Component {
         super(props);
         this.state = {
           matches: [],
+          singleMatch:{},
           allMatchesBtnClicked: false,
           joinBtnClicked:false
         };       
@@ -52,7 +53,7 @@ class TennisSchedulePage extends React.Component {
         e.preventDefault();
         fetch(`http://localhost:8080/DateAndSkillLevelAndLocationAndTime/${this.state.date}/${this.state.skillLevel}/${this.state.location}/${this.state.time}`)
         .then((response) => response.json())
-        .then((json) => this.setState({matches: json}))
+        .then((json) => {this.setState({singleMatch: json}); console.log(json)})
         this.setState({allMatchesBtnClicked: false})
         this.setState({joinBtnClicked: true})
     }
@@ -80,36 +81,37 @@ class TennisSchedulePage extends React.Component {
         {
                 (
                     !this.state.joinBtnClicked ? <p> </p> : (          
-                        <ul>
-                            {
-                                this.state.matches.map((match) => (
-                                    <li key = {match.id}>
-                                        <h3>{match.location}</h3>
-                                        <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                        <p>{match.date}</p>
+                        <div>
+                                
+                                {/* //  this.state.matches.map((match) => (
+                                //      <li key = {match.id}> */}
+                                        <h3>{this.state.singleMatch.location}</h3>
+                                        <h4>{this.state.singleMatch.skillLevel}</h4>
+                                        <p>{this.state.singleMatch.time}</p>
+                                        <p>{this.state.singleMatch.date}</p>
 
-                                    </li>))
-                            }
-                        </ul>   
+                                    {/* </li>)) */}
+                                
+                        </div>   
                     )                      
                 )                         
             } 
                 {
                 (
                     !this.state.allMatchesBtnClicked ? <p> </p> : (          
-                        <ul>
+                        <div>
                             {
-                                this.state.matches.map((match) => (
+                                 this.state.matches.map((match) => (
                                     <li key = {match.id}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
                                         <p>{match.time}</p>
                                         <p>{match.date}</p>
 
-                                    </li>))
-                            }
-                        </ul>   
+                                    </li>)
+                                   )
+                                 }
+                        </div>   
                     )                      
                 )                         
             } 

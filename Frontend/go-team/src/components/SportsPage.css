@@ -1,5 +1,6 @@
 .grid-container {
     display: grid;
+    overflow: scroll;
     grid-template-columns: auto auto auto;
     gap: 10px;
     padding: 10px;

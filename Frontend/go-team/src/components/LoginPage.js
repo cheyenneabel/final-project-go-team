@@ -51,7 +51,7 @@ class LoginPage extends React.Component{
                 
                 <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
                 <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
-                <input type="Submit" id="submit" value="Login"></input>
+                <NavLink id="sports" to='/sports'><input type="Submit" id="submit" value="Login"></input></NavLink>
                 
             </form>
             {
