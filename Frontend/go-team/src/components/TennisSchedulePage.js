@@ -84,114 +84,27 @@ class TennisSchedulePage extends React.Component {
 
    render() {
     return(
-   
-    <div className="tennisSchedulePage">
-        <h2 id="scheduleGreeting">Join a match</h2>
-            <div className="scheduleText">
-                <p>All available matches and results will adjust when filtering options are selected.</p>
-  {/*--------------------------All Matches------------------------------*/}          
-            <button id="all-matches" onClick={this.handleAllMatches}>See All</button>
-            {
-                (
-                    !this.state.allMatchesBtnClicked ? <p> </p> : (          
-                        <ul>
-                            {
-                                this.state.matches.map((match) => (
-                                    <li key = {match.date}>
-                                        <h3>{match.location}</h3>
-                                        <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                    </li>))
-                            }
-                        </ul>   
-                    )                      
-                )                         
-            }  
- {/*-------------------------Matches by Location----------------------*/}
-            <h3>Select desired location to view available matches</h3>
-            <form onSubmit={this.handleByLocation}>
-                <select id="select-location" onChange={(e) => {e.preventDefault(); this.setState({location:e.target.value})}}>
-                    <option value="selection" selected disabled>Select a location</option>
-                    <option value="Columbus">Columbus</option>
-                    <option value="Cleveland">Cleveland</option>
-                </select>
-                <input type="submit" value = "See Matches"></input>
-            </form>
-            {
-                (
-                    !this.state.locationBtnClicked ? <p> </p> : (          
-                        <ul>
-                            {
-                                this.state.matches.map((match) => (
-                                    <li key = {match.id}>
-                                        <h3>{match.location}</h3>
-                                        <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                    </li>))
-                            }
-                        </ul>   
-                    )                      
-                )                         
-            } 
-{/*-------------------------Matches by Skill Level----------------------*/}
-            <button id="by-skill-level" onClick={this.handleBySkillLevel}>Find by Skill Level</button>
-            {
-                (
-                    !this.state.skillLevelBtnClicked ? <p> </p> : (          
-                        <ul>
-                            {
-                                this.state.matches.map((match) => (
-                                    <li key = {match.date}>
-                                        <h3>{match.location}</h3>
-                                        <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                    </li>))
-                            }
-                        </ul>   
-                    )                      
-                )                         
-            } 
- {/*-------------------------Matches by Date----------------------*/}
-            <button id="by-date" onClick={this.handleByDate}>Find by Date</button>
-            {
-                (
-                    !this.state.dateBtnClicked ? <p> </p> : (          
-                        <ul>
-                            {
-                                this.state.matches.map((match) => (
-                                    <li key = {match.date}>
-                                        <h3>{match.location}</h3>
-                                        <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                    </li>))
-                            }
-                        </ul>   
-                    )                      
-                )                         
-            } 
-
- {/*-------------------------Matches by Time----------------------*/}
-            <button id="by-time" onClick={this.handleByTime}>Find by Time</button>
-            {
-                (
-                    !this.state.timeBtnClicked ? <p> </p> : (          
-                        <ul>
-                            {
-                                this.state.matches.map((match) => (
-                                    <li key = {match.date}>
-                                        <h3>{match.location}</h3>
-                                        <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                    </li>))
-                            }
-                        </ul>   
-                    )                      
-                )                         
-            } 
-            </div>   
-    </div>
+        <div className="matches">
+        <h3 className="schedule">Schedule A Match</h3>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value}); console.log(this.state.location)}}></input>
+          <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value}); console.log(this.state.skillLevel)}}>                           
+            <label>Select Skill Level:</label>                           
+            <label><input type="radio" id="skillLevelButton" value="Beginner" name="skillLevel"></input>Beginner</label>                         
+            <label><input type="radio" id="skillLevelButton" value="Intermediate" name="skillLevel"></input>Intermediate</label>                     
+            <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>                       
+            <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>                      
+          </div>
+          <input type="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
+          <input type="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
+          <input type="Submit" id="submit" value="Join"></input>
+        </form>
+      </div>           
     )
-   }
+  }
+
 }
+
+
 
 export default TennisSchedulePage;
