@@ -154,11 +154,11 @@ public void removeMatchFromUser(@PathVariable long userId, @PathVariable long ma
     @Transactional
     public Matches joinMatch(@PathVariable long userId, @PathVariable long matchId){
         Optional <Matches> matches = matchesRepo.findById(matchId);
-        if(matches.isPresent() && matches.get().getUsers().size() == 1){
+        if(matches.isPresent() && matches.get().getUsers().size() <= 1){
             Optional<UserModel> participatedUser = matches.get().getUsers().stream().findFirst();
             System.out.println(participatedUser.get().getId());
             long participatedUserId = participatedUser.get().getId();
-            if(participatedUserId != userId){
+            if(participatedUserId != userId || participatedUser == null){
                 UserModel user = userRepo.findById(userId).get();
                 matches.get().setUsers(user);
                 user.setMatches(matches.get());

@@ -48,7 +48,7 @@ class UserPage extends React.Component {
                                             <p>{match.date}</p>
                                             <p> {match.time}</p>
                                             <p> {match.skillLevel}</p>
-                                            <img src={Hilliard} id="tennis" alt="Tennis court"/>
+                                            {/* <img src={Hilliard} id="tennis" alt="Tennis court"/> */}
                                         </div>))
                                 }
                            

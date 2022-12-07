@@ -31,24 +31,38 @@ class TennisSchedulePage extends React.Component {
        
     }
 
-    handleJoin(id){
+    handleJoin(e, id){
+        e.preventDefault();
+        console.log("yay");
+        fetch(`http://localhost:8080/join/8/${id}`, {
+            method: "PUT"
+            })
+        .then((response) => response.json())
+        .then((json) => this.setState({singleMatch: json})) 
+        this.setState({allMatchesBtnClicked: false})
+        this.setState({joinBtnClicked: true})
+        this.props.history.push('/user');
+
+    }  
+//         const joinButtons = document.querySelectorAll(".submitButton1");
+//         joinButtons.forEach(joinButton => {
+//             const idEl = joinButton.parentElement.querySelector(".matchID");
+//             joinButton.addEventListener("click", () => {
+//                 fetch(`http://localhost:8080/join/8/${idEl.value}`, {
+//                     method: "PUT"
+//                 })
+//                 .then(res => res.json())
+//                 .then(json => {
+//                     this.setState({singleMatch: json});
+//                 })
+//             })
+//         })
+// }
         // e.preventDefault();
 
-        fetch(`http://localhost:8080/join/8`,
-        {method: 'PUT',
-        mode:'cors',
-        headers: new Headers({'content-type': 'application/json'}),
-        body: JSON.stringify({
-            // "location": this.state.location,
-            // "date": this.state.date,
-            // "time": this.state.time,
-            // "skillLevel": this.state.skillLevel
-            "id": id
-        })}
         
-        )
 
-    }
+    
 // Handling matches by location
     // handleByLocation(e){
     //     e.preventDefault();
@@ -128,15 +142,17 @@ class TennisSchedulePage extends React.Component {
                         <div id="scheduleResult">
                             {
                                  this.state.matches.map((match) => (
-                                    <li key = {match.id}>
+                                    <div key = {match.id}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
                                         <p>Time:<br></br> {match.time}</p>
                                         <p>Date:<br></br> {match.date}</p>
-                                        <input onSubmit={() => this.handleJoin(match.id)} type="submit" id="submitButton" value="Join"></input>
+                                        <input type="hidden" class="matchID" value={match.id}></input>
+
+                                        <input onClick={(e) => this.handleJoin(e, match.id)} type="submit" className="submitButton1" value="Join"></input>
 
 
-                                    </li>)
+                                    </div>)
                                    )
                                  }
                         </div>   
