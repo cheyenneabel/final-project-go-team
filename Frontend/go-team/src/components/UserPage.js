@@ -1,5 +1,6 @@
 import React from "react";
 import './UserPage.css';
+import Hilliard from "./images/Hilliard.jpg";
 
 class UserPage extends React.Component {
     constructor (props) {
@@ -47,6 +48,7 @@ class UserPage extends React.Component {
                                             <p>{match.date}</p>
                                             <p> {match.time}</p>
                                             <p> {match.skillLevel}</p>
+                                            <img src={Hilliard} alt="Tennis court"/>
                                         </li>))
                                 }
                             </ul>
