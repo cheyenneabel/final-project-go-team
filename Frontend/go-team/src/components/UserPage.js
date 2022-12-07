@@ -1,4 +1,5 @@
 import React from "react";
+import './UserPage.css';
 
 
 class UserPage extends React.Component {
@@ -20,7 +21,7 @@ class UserPage extends React.Component {
 
         handleSubmit(e){
             e.preventDefault();
-            fetch('http://localhost:8080/3/myMatches')
+            fetch('http://localhost:8080/5/myMatches')
             .then((response) => response.json())
             .then((json) => {this.setState({myMatches:json}); console.log(json)})
             this.setState({buttonClicked: true})
@@ -38,7 +39,7 @@ class UserPage extends React.Component {
                     {
                     (
                         !this.state.buttonClicked ? <p> </p> : (
-                        <div>
+                        <div id="seeMatches">
                             <ul>
                                 {
                                     this.state.myMatches.map((match) =>(
