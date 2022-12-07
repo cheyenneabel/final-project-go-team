@@ -6,6 +6,7 @@ import com.GoTeam.demo.Repositories.MatchesRepository;
 import com.GoTeam.demo.Repositories.UserRepo;
 import com.fasterxml.jackson.core.json.WriterBasedJsonGenerator;
 import org.apache.catalina.User;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Time;
@@ -149,12 +150,22 @@ public void removeMatchFromUser(@PathVariable long userId, @PathVariable long ma
         matches.setSkillLevel(incomingMatch.getSkillLevel());
         return matches;
     }
-    @PutMapping("/join/{id}")
-    public Matches joinMatch(@PathVariable long id, @RequestBody Matches incomingMatch){
-        Optional <Matches> matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime());
+    @PutMapping("/join/{userId}/{matchId}")
+    @Transactional
+    public Matches joinMatch(@PathVariable long userId, @PathVariable long matchId){
+        Optional <Matches> matches = matchesRepo.findById(matchId);
         if(matches.isPresent() && matches.get().getUsers().size() == 1){
-            matches.get().setUsers(userRepo.findById(id).get());
-            return matches.get();
+            Optional<UserModel> participatedUser = matches.get().getUsers().stream().findFirst();
+            System.out.println(participatedUser.get().getId());
+            long participatedUserId = participatedUser.get().getId();
+            if(participatedUserId != userId){
+                UserModel user = userRepo.findById(userId).get();
+                matches.get().setUsers(user);
+                user.setMatches(matches.get());
+                userRepo.save(user);
+                matchesRepo.save(matches.get());
+                return matches.get();
+            }
         }
         return null;
     }

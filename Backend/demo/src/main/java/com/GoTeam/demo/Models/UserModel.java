@@ -101,6 +101,9 @@ public class UserModel {
 
     public void setMatches(Matches match) {
         matches.add(match);
+    }
 
+    public Long getId() {
+        return id;
     }
 }
