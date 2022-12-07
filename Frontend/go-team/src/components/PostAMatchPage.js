@@ -18,7 +18,7 @@ class PostAMatchPage extends React.Component {
     handleSubmit(e){
       e.preventDefault();
       if(this.state.location !== "" && this.state.date !== "" && this.state.time !== "" && this.state.skillLevel !== "") {
-        fetch('http://localhost:8080/Schedule/3',
+        fetch(`http://localhost:8080/Schedule/8`,
        
         {method: 'POST',
         mode:'cors',
@@ -31,7 +31,7 @@ class PostAMatchPage extends React.Component {
         })
       })
       }      
-      
+      this.props.history.push('/user');
     }     
       render () {
         return (
@@ -48,7 +48,7 @@ class PostAMatchPage extends React.Component {
               </div>
               <input type="date" id="pDate" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
               <input type="time" id="pTime" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
-              <input type="Submit" id="submit" value="Join"></input>
+              <input type="Submit" id="submit" value="Schedule"></input>
             </form></fieldset>
           </div>           
         )
