@@ -73,7 +73,7 @@ class SignUpPage extends React.Component{
                             <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>
                             <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>
                         </div>
-                       <NavLink id="sports" to='/sports'><input type="Submit" id="submit"></input></NavLink>
+                       <NavLink id="sports" to='/sports'><input type="Submit" id="submitSignUp"></input></NavLink>
                     </form>
 
             </div>

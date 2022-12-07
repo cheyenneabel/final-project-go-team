@@ -1,22 +1,29 @@
 
-#signUp, #submit {
+#signUp, #sports {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     color: white;
     background-color: black;
-    text-align:center;
+    text-align: center;
     line-height: 20px;
     margin: 10px;
-    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
     text-decoration: none;
     font-weight: bold;
     font-size: medium;
     border-style: none;
+    box-sizing: border-box;
     border-radius: 10px;
+    width:fit-content;
 }
 
 #email, #password{
     background-color: rgb(197, 251, 213);
     display: flex;
-    flex-direction: row row row row;
+    flex-direction: column;
     margin-top: 20px;
     margin-left:auto;
     margin-right:auto;
