@@ -21,7 +21,7 @@ class UserPage extends React.Component {
 
         handleSubmit(e){
             e.preventDefault();
-            fetch('http://localhost:8080/5/myMatches')
+            fetch('http://localhost:8080/8/myMatches')
             .then((response) => response.json())
             .then((json) => {this.setState({myMatches:json}); console.log(json)})
             this.setState({buttonClicked: true})
@@ -32,26 +32,26 @@ class UserPage extends React.Component {
         render() {
             return (
                 <div className="usersMatches">
-                    <h3>user's profile</h3>
+                    <h2>My profile</h2>
                     <form onSubmit={this.handleSubmit}>
-                    <input type="submit" value="See My Matches"></input>
+                    <input type="submit" id="list" value="See My Matches"></input>
                     </form>
                     {
                     (
                         !this.state.buttonClicked ? <p> </p> : (
                         <div id="seeMatches">
-                            <ul>
+                            
                                 {
                                     this.state.myMatches.map((match) =>(
-                                        <li key = {match.id}>
+                                        <div key = {match.id}>
                                             <h3>{match.location}</h3>
                                             <p>{match.date}</p>
                                             <p> {match.time}</p>
                                             <p> {match.skillLevel}</p>
-                                            <img src={Hilliard} alt="Tennis court"/>
-                                        </li>))
+                                            <img src={Hilliard} id="tennis" alt="Tennis court"/>
+                                        </div>))
                                 }
-                            </ul>
+                           
                         </div>
                         )
                     )
