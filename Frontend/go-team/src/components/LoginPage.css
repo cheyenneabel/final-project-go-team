@@ -1,15 +1,15 @@
 
-#signUp, #sports {
+#sports {
     display: flex;
     flex-direction: row;
     justify-content: center;
     color: white;
-    background-color: black;
+    background-color: #000D1B;
     text-align: center;
     line-height: 20px;
-    margin: 10px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
     padding: 5px;
     text-decoration: none;
     font-weight: bold;
@@ -17,7 +17,7 @@
     border-style: none;
     box-sizing: border-box;
     border-radius: 10px;
-    width:fit-content;
+    width: 300px;
 }
 
 #email, #password{
@@ -27,7 +27,8 @@
     margin-top: 20px;
     margin-left:auto;
     margin-right:auto;
-    padding: 20px;
+    margin-bottom: 30px;
+    padding: 25px;
     font-weight: bolder;
     font-size: medium;
     text-align: center;
@@ -35,4 +36,23 @@
     border-radius: 10px;
     border-color: #1FFF00;
     box-sizing: border-box;
+    width: 300px;
+    height: 30px;
+}
+
+fieldset{
+    border-radius: 10px;
+    border-color: #000D1B;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0;
+    width: 400px;
+    height: 300px;
+}
+legend{
+    color: #1FFF00;
+    font-size: 30px;
+    font-weight: 500;
 }
