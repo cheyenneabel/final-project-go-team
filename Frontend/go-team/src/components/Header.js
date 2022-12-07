@@ -11,8 +11,10 @@ const Header = () => (
             <NavLink to='/'><img src={logoImage} alt="logo"/></NavLink>
         </div>
         <ul id="links">
-            <NavLink to='/aboutUs'>About Us</NavLink>
-            <NavLink to='/loginPage'>Login | Sign Up</NavLink>
+            <NavLink to='/aboutUs'>About Us<span></span><span></span><span></span></NavLink>
+            <NavLink to='/loginPage'>Login<span>|</span></NavLink>
+            <NavLink to='/SignUpPage'>Sign Up</NavLink>
+
         </ul>
     </div>
 )

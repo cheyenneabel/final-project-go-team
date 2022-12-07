@@ -49,8 +49,10 @@ class SignUpPage extends React.Component{
     render () {
         return(
             <div className="signup">
-                <h3>Signup</h3>
-                    <p id="signupConfirm">Please enter all info and click submit to create account</p>
+                {/* <h3>Signup</h3> */}
+                    {/* <p id="signupConfirm">Please enter all info and click submit to create account</p> */}
+                    <fieldset className="SignUp">
+                        <legend>Signup</legend>
                     <form onSubmit={this.handleSignup}>
                 
                         <input type="text" id="info" placeholder="First Name" onChange={(e) => {e.preventDefault(); this.setState({firstName: e.target.value})}}></input>
@@ -67,14 +69,15 @@ class SignUpPage extends React.Component{
                         <input type="text" id="info" placeholder="City" onChange={(e) => {e.preventDefault(); this.setState({city: e.target.value})}}></input>
 
                         <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value})}}>
-                            <label>Select Skill Level:</label>
+                            <br></br><label>Select Skill Level:</label><br></br>
                             <label><input type="radio" id="skillLevelButton" value="Beginner" name="skillLevel"></input>Beginner</label>
                             <label><input type="radio" id="skillLevelButton" value="Intermediate" name="skillLevel"></input>Intermediate</label>
                             <label><input type="radio" id="skillLevelButton" value="Professional" name="skillLevel"></input>Professional</label>
                             <label><input type="radio" id="skillLevelButton" value="Expert" name="skillLevel"></input>Expert</label>
                         </div>
-                       <NavLink id="sports" to='/sports'><input type="Submit" id="submitSignUp"></input></NavLink>
+                       <NavLink id="sports1" to='/sports'><input type="Submit" id="submitSignUp"></input></NavLink>
                     </form>
+                    </fieldset>
 
             </div>
         )

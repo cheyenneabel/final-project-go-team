@@ -46,29 +46,17 @@ class LoginPage extends React.Component{
    render() {
     return(
         <div className="Login">
-            <h3 id="title">Login</h3> 
+            {/* <h3 id="title">Login</h3>  */}
+            <fieldset>
+                <legend>Login</legend>
             <form onSubmit={this.handleLogin}>
                 
                 <input type="text" id="email" placeholder="Email" onChange={(e) => {e.preventDefault(); this.setState({email: e.target.value})}}></input>          
                 <input type="password" id="password" placeholder="Password" onChange={(e) => {e.preventDefault(); this.setState({password: e.target.value})}}></input>
                 <NavLink id="sports" to='/sports'><input type="Submit" id="sports" value="Login"></input></NavLink>
                 
-            </form>
-            {
-                    // ( {if(this.state.res)}  <NavLink to='/sports'><input type="Submit" id="submit" value="Login"></input></NavLink>)
-                    // (
-                    //     !this.state.res ? <p>  </p> : (
-                    //         <div>
-                    //           {
-                    //             // <NavLink to='/sports'></NavLink>
-                    //           }
-                    //           <Redirect to="/sports" /> 
-                    //         </div>
-                    //     )
-                    // )
-
-                    }
-        <NavLink id="signUp" to='/signUpPage'>Don't have an account? Sign up here.</NavLink>  
+            </form></fieldset>
+           
     </div>
     );
 }}

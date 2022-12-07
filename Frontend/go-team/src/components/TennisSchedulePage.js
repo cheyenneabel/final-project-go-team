@@ -8,11 +8,16 @@ class TennisSchedulePage extends React.Component {
         this.state = {
           matches: [],
           singleMatch:{},
+          location: "",
+          date: "",
+          time: "",
+          skillLevel: "",
           allMatchesBtnClicked: false,
           joinBtnClicked:false
         };       
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAllMatches = this.handleAllMatches.bind(this);
+        this.handleJoin = this.handleJoin.bind(this);
     }
 // Handling all matches  
     handleAllMatches(e){
@@ -24,6 +29,25 @@ class TennisSchedulePage extends React.Component {
         this.setState({joinBtnClicked: false})
 
        
+    }
+
+    handleJoin(id){
+        // e.preventDefault();
+
+        fetch(`http://localhost:8080/join/8`,
+        {method: 'PUT',
+        mode:'cors',
+        headers: new Headers({'content-type': 'application/json'}),
+        body: JSON.stringify({
+            // "location": this.state.location,
+            // "date": this.state.date,
+            // "time": this.state.time,
+            // "skillLevel": this.state.skillLevel
+            "id": id
+        })}
+        
+        )
+
     }
 // Handling matches by location
     // handleByLocation(e){
@@ -62,13 +86,14 @@ class TennisSchedulePage extends React.Component {
    render() {
     return(
         <div className="matches">
+        <fieldset className="tennisSchedule">
         <h3 className="schedule">Join A Match</h3>
-        <h4>Click "See All" to view all available matches.</h4>
+        <h4>Click "See All" to view all available matches</h4>
         <input type="button" onClick={this.handleAllMatches} id="seeAll" value="See all"></input>
-        <h4>Enter all search fields and click "join" to select the desired match.</h4>
+        <h4>All available matches and results will adjust when filtering options are selected</h4>
         <form onSubmit={this.handleSubmit}>
           <input type="text" id="location" placeholder="location" onChange={(e) => {e.preventDefault(); this.setState({location: e.target.value})}}></input>
-          <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value}); console.log(this.state.skillLevel)}}>                           
+          <div onChange={(e) => {e.preventDefault(); this.setState({skillLevel: e.target.value}); console.log(this.state.skillLevel)}}>   <br></br>                        
             <label>Select Skill Level:</label>                           
             <label><input type="radio" id="skillLevelButton" value="Beginner" name="skillLevel"></input>Beginner</label>                         
             <label><input type="radio" id="skillLevelButton" value="Intermediate" name="skillLevel"></input>Intermediate</label>                     
@@ -77,7 +102,7 @@ class TennisSchedulePage extends React.Component {
           </div>
           <input type="date" id="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
           <input type="time" id="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
-          <NavLink id="user" to="/user"><input type="submit" id="submit" value="Join"></input></NavLink>
+          {/* <NavLink id="user" to="/user"><input type="submit" id="submit" value="Join"></input></NavLink> */}
         </form>
         {
                 (
@@ -106,8 +131,10 @@ class TennisSchedulePage extends React.Component {
                                     <li key = {match.id}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>{match.time}</p>
-                                        <p>{match.date}</p>
+                                        <p>Time: {match.time}</p>
+                                        <p>Date: {match.date}</p>
+                                        <input onSubmit={() => this.handleJoin(match.id)} type="submit" id="submitButton" value="Join"></input>
+
 
                                     </li>)
                                    )
@@ -116,6 +143,7 @@ class TennisSchedulePage extends React.Component {
                     )                      
                 )                         
             } 
+            </fieldset>
       </div>           
     )
   }
