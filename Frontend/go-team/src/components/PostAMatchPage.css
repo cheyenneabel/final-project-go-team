@@ -1,3 +1,11 @@
+#pBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    margin:auto;
+}
+
 #submit{
     color: white;
     background-color: black;
@@ -11,18 +19,20 @@
     border-style: none;
     border-radius: 10px;
 }
-#location {
+#pLocation, #pDate, #pTime{
     background-color: rgb(197, 251, 213);
     display: flex;
     flex-direction: row row;
     margin-top: 20px;
     margin-left:auto;
     margin-right:auto;
+    margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
     font-size: small;
     border-style: solid;
-    border-color: #1FFF00
+    border-color: #1FFF00;
+    width: 200px;
 }

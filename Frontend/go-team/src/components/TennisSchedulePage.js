@@ -87,7 +87,7 @@ class TennisSchedulePage extends React.Component {
     return(
         <div className="matches">
         <fieldset className="tennisSchedule">
-        <h3 className="schedule">Join A Match</h3>
+        <legend>Join A Match</legend>
         <h4>Click "See All" to view all available matches</h4>
         <input type="button" onClick={this.handleAllMatches} id="seeAll" value="See all"></input>
         <h4>All available matches and results will adjust when filtering options are selected</h4>
@@ -102,7 +102,7 @@ class TennisSchedulePage extends React.Component {
           </div>
           <input type="date" id="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
           <input type="time" id="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
-          {/* <NavLink id="user" to="/user"><input type="submit" id="submit" value="Join"></input></NavLink> */}
+          <NavLink id="user" to="/user"><input type="submit" id="submit" value="Search"></input></NavLink>
         </form>
         {
                 (
@@ -131,8 +131,8 @@ class TennisSchedulePage extends React.Component {
                                     <li key = {match.id}>
                                         <h3>{match.location}</h3>
                                         <h4>{match.skillLevel}</h4>
-                                        <p>Time: {match.time}</p>
-                                        <p>Date: {match.date}</p>
+                                        <p>Time:<br></br> {match.time}</p>
+                                        <p>Date:<br></br> {match.date}</p>
                                         <input onSubmit={() => this.handleJoin(match.id)} type="submit" id="submitButton" value="Join"></input>
 
 
