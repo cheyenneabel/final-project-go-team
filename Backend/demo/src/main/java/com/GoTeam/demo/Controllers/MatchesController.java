@@ -118,14 +118,6 @@ public class MatchesController {
     public Iterable<Matches> getAllMatches() {
         return matchesRepo.findAll();
     }
-
-//    @DeleteMapping("/DeleteMatch/{date}/{skillLevel}/{location}/{time}")
-//    public void deleteMatch(@PathVariable String time, @PathVariable String date, @PathVariable String skillLevel, @PathVariable String location) {
-//        Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(skillLevel, date, location, time).get();
-//        long matchesId = matches.getId();
-//        matchesRepo.deleteById(matchesId);
-
-//    }
     
 @PutMapping("/removeMatchFromUser/{userId}/{matchId}")
 public void removeMatchFromUser(@PathVariable long userId, @PathVariable long matchId){
@@ -139,8 +131,6 @@ public void removeMatchFromUser(@PathVariable long userId, @PathVariable long ma
         existingUser.get().getMatches().remove(matchToRemove);
         userRepo.save(existingUser.get());
 }
-
-
     @PutMapping("/combined")
     public Matches updateMatch(@RequestBody Matches incomingMatch){
         Matches matches = matchesRepo.findBySkillLevelAndDateAndLocationAndTime(incomingMatch.getSkillLevel(), incomingMatch.getDate(), incomingMatch.getLocation(), incomingMatch.getTime()).get();
