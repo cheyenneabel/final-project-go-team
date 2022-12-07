@@ -1,5 +1,6 @@
 import React from 'react';
 import './TennisSchedulePage.css';
+import { NavLink } from 'react-router-dom';
  
 class TennisSchedulePage extends React.Component { 
     constructor (props) {
@@ -76,7 +77,7 @@ class TennisSchedulePage extends React.Component {
           </div>
           <input type="date" id="date" onChange={(e) => {e.preventDefault(); this.setState({date: e.target.value}); console.log(this.state.date)}}></input>
           <input type="time" id="time" onChange={(e) => {e.preventDefault(); this.setState({time: e.target.value}); console.log(this.state.time)}}></input>
-          <input type="submit" id="submit" value="Join"></input>
+          <NavLink id="user" to="/user"><input type="submit" id="submit" value="Join"></input></NavLink>
         </form>
         {
                 (
@@ -99,7 +100,7 @@ class TennisSchedulePage extends React.Component {
                 {
                 (
                     !this.state.allMatchesBtnClicked ? <p> </p> : (          
-                        <div>
+                        <div id="scheduleResult">
                             {
                                  this.state.matches.map((match) => (
                                     <li key = {match.id}>

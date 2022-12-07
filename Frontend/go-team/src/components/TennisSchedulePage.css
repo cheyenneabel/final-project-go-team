@@ -32,3 +32,14 @@
     border-style: none;
     border-radius: 10px;
 }
+
+#scheduleResult{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    overflow: scroll;
+    margin-bottom: 80px;
+    border-style: solid;
+    border-color: #1FFF00;
+    background-color: rgb(197, 251, 213);
+}
