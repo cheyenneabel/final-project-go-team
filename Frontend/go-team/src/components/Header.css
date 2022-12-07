@@ -17,9 +17,7 @@ ul a{
     align-items:center;
     justify-content: center;
     color: white;
-    /* border: 3px solid black; */
     box-sizing: border-box;
-    /* border-radius: 40px; */
     min-width: 40px;
     padding: 10px;
     text-decoration: none;
@@ -27,8 +25,8 @@ ul a{
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
